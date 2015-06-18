@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		963B83DD1A9B97F30072CD2D /* PlantingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963B83DC1A9B97F30072CD2D /* PlantingViewController.swift */; };
+		96AED8DE1B2B4D240078BE54 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AED8DD1B2B4D240078BE54 /* NotesViewController.swift */; };
+		96AED8E01B2B57100078BE54 /* RhizomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AED8DF1B2B57100078BE54 /* RhizomeViewController.swift */; };
+		96AED8E21B2B57220078BE54 /* ScoutingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AED8E11B2B57220078BE54 /* ScoutingViewController.swift */; };
+		96AED8E41B2B57370078BE54 /* CaneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AED8E31B2B57370078BE54 /* CaneViewController.swift */; };
+		96BD44291A8AED8100216137 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BD44281A8AED8100216137 /* AppDelegate.swift */; };
+		96BD442E1A8AED8100216137 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BD442D1A8AED8100216137 /* MainViewController.swift */; };
+		96BD44311A8AED8100216137 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96BD442F1A8AED8100216137 /* Main.storyboard */; };
+		96BD44331A8AED8100216137 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96BD44321A8AED8100216137 /* Images.xcassets */; };
+		96BD44361A8AED8100216137 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96BD44341A8AED8100216137 /* LaunchScreen.xib */; };
+		96BD44421A8AED8100216137 /* RenewBiomassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BD44411A8AED8100216137 /* RenewBiomassTests.swift */; };
+		96C0F2DE1A8C4CCC0002FEA8 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0F2DD1A8C4CCC0002FEA8 /* InfoViewController.swift */; };
+		96C43D141B27C34E00A4D6D0 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C43D131B27C34E00A4D6D0 /* CloudKit.framework */; };
+		96C43D1B1B28AD8000A4D6D0 /* Farmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C43D1A1B28AD8000A4D6D0 /* Farmer.swift */; };
+		96C43D1E1B28B2BA00A4D6D0 /* RenewBiomass.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 96C43D1C1B28B2BA00A4D6D0 /* RenewBiomass.xcdatamodeld */; };
+		96C49A4F1A9CD2D60080902E /* PlantingPopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C49A4E1A9CD2D60080902E /* PlantingPopoverController.swift */; };
+		96C8F4F41A8C366B005351B3 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C8F4F31A8C366B005351B3 /* MapViewController.swift */; };
+		96C8F4F61A8C428D005351B3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C8F4F51A8C428D005351B3 /* TabBarController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		96BD443C1A8AED8100216137 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96BD441B1A8AED8100216137 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96BD44221A8AED8100216137;
+			remoteInfo = RewnewBiomass;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		963B83DC1A9B97F30072CD2D /* PlantingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantingViewController.swift; sourceTree = "<group>"; };
+		96AED8DD1B2B4D240078BE54 /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		96AED8DF1B2B57100078BE54 /* RhizomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhizomeViewController.swift; sourceTree = "<group>"; };
+		96AED8E11B2B57220078BE54 /* ScoutingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoutingViewController.swift; sourceTree = "<group>"; };
+		96AED8E31B2B57370078BE54 /* CaneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaneViewController.swift; sourceTree = "<group>"; };
+		96BD44231A8AED8100216137 /* RenewBiomass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RenewBiomass.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		96BD44271A8AED8100216137 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96BD44281A8AED8100216137 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		96BD442D1A8AED8100216137 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		96BD44301A8AED8100216137 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		96BD44321A8AED8100216137 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		96BD44351A8AED8100216137 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		96BD443B1A8AED8100216137 /* RenewBiomassTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RenewBiomassTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		96BD44401A8AED8100216137 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96BD44411A8AED8100216137 /* RenewBiomassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenewBiomassTests.swift; sourceTree = "<group>"; };
+		96C0F2DD1A8C4CCC0002FEA8 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		96C43D121B27C34A00A4D6D0 /* RenewBiomass.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = RenewBiomass.entitlements; sourceTree = "<group>"; };
+		96C43D131B27C34E00A4D6D0 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		96C43D1A1B28AD8000A4D6D0 /* Farmer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Farmer.swift; sourceTree = "<group>"; };
+		96C43D1D1B28B2BA00A4D6D0 /* RenewBiomass.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RenewBiomass.xcdatamodel; sourceTree = "<group>"; };
+		96C49A4E1A9CD2D60080902E /* PlantingPopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantingPopoverController.swift; sourceTree = "<group>"; };
+		96C8F4F31A8C366B005351B3 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		96C8F4F51A8C428D005351B3 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		96BD44201A8AED8100216137 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96C43D141B27C34E00A4D6D0 /* CloudKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96BD44381A8AED8100216137 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		96BD441A1A8AED8100216137 = {
+			isa = PBXGroup;
+			children = (
+				96C43D131B27C34E00A4D6D0 /* CloudKit.framework */,
+				96BD44251A8AED8100216137 /* RenewBiomass */,
+				96BD443E1A8AED8100216137 /* RenewBiomassTests */,
+				96BD44241A8AED8100216137 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		96BD44241A8AED8100216137 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				96BD44231A8AED8100216137 /* RenewBiomass.app */,
+				96BD443B1A8AED8100216137 /* RenewBiomassTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		96BD44251A8AED8100216137 /* RenewBiomass */ = {
+			isa = PBXGroup;
+			children = (
+				96C43D121B27C34A00A4D6D0 /* RenewBiomass.entitlements */,
+				96BD44261A8AED8100216137 /* Supporting Files */,
+				96BD442F1A8AED8100216137 /* Main.storyboard */,
+				96BD442D1A8AED8100216137 /* MainViewController.swift */,
+				96C8F4F51A8C428D005351B3 /* TabBarController.swift */,
+				963B83DC1A9B97F30072CD2D /* PlantingViewController.swift */,
+				96C49A4E1A9CD2D60080902E /* PlantingPopoverController.swift */,
+				96C8F4F31A8C366B005351B3 /* MapViewController.swift */,
+				96AED8DD1B2B4D240078BE54 /* NotesViewController.swift */,
+				96C0F2DD1A8C4CCC0002FEA8 /* InfoViewController.swift */,
+				96C43D1A1B28AD8000A4D6D0 /* Farmer.swift */,
+				96AED8DF1B2B57100078BE54 /* RhizomeViewController.swift */,
+				96AED8E11B2B57220078BE54 /* ScoutingViewController.swift */,
+				96AED8E31B2B57370078BE54 /* CaneViewController.swift */,
+			);
+			path = RenewBiomass;
+			sourceTree = "<group>";
+		};
+		96BD44261A8AED8100216137 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				96C43D1C1B28B2BA00A4D6D0 /* RenewBiomass.xcdatamodeld */,
+				96BD44321A8AED8100216137 /* Images.xcassets */,
+				96BD44341A8AED8100216137 /* LaunchScreen.xib */,
+				96BD44281A8AED8100216137 /* AppDelegate.swift */,
+				96BD44271A8AED8100216137 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		96BD443E1A8AED8100216137 /* RenewBiomassTests */ = {
+			isa = PBXGroup;
+			children = (
+				96BD44411A8AED8100216137 /* RenewBiomassTests.swift */,
+				96BD443F1A8AED8100216137 /* Supporting Files */,
+			);
+			path = RenewBiomassTests;
+			sourceTree = "<group>";
+		};
+		96BD443F1A8AED8100216137 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				96BD44401A8AED8100216137 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		96BD44221A8AED8100216137 /* RenewBiomass */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96BD44451A8AED8100216137 /* Build configuration list for PBXNativeTarget "RenewBiomass" */;
+			buildPhases = (
+				96BD441F1A8AED8100216137 /* Sources */,
+				96BD44201A8AED8100216137 /* Frameworks */,
+				96BD44211A8AED8100216137 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RenewBiomass;
+			productName = RewnewBiomass;
+			productReference = 96BD44231A8AED8100216137 /* RenewBiomass.app */;
+			productType = "com.apple.product-type.application";
+		};
+		96BD443A1A8AED8100216137 /* RenewBiomassTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96BD44481A8AED8100216137 /* Build configuration list for PBXNativeTarget "RenewBiomassTests" */;
+			buildPhases = (
+				96BD44371A8AED8100216137 /* Sources */,
+				96BD44381A8AED8100216137 /* Frameworks */,
+				96BD44391A8AED8100216137 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				96BD443D1A8AED8100216137 /* PBXTargetDependency */,
+			);
+			name = RenewBiomassTests;
+			productName = RewnewBiomassTests;
+			productReference = 96BD443B1A8AED8100216137 /* RenewBiomassTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		96BD441B1A8AED8100216137 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = iCarothers;
+				TargetAttributes = {
+					96BD44221A8AED8100216137 = {
+						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = UYVUKNJ862;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
+					96BD443A1A8AED8100216137 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 96BD44221A8AED8100216137;
+					};
+				};
+			};
+			buildConfigurationList = 96BD441E1A8AED8100216137 /* Build configuration list for PBXProject "RenewBiomass" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 96BD441A1A8AED8100216137;
+			productRefGroup = 96BD44241A8AED8100216137 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				96BD44221A8AED8100216137 /* RenewBiomass */,
+				96BD443A1A8AED8100216137 /* RenewBiomassTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		96BD44211A8AED8100216137 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96BD44311A8AED8100216137 /* Main.storyboard in Resources */,
+				96BD44361A8AED8100216137 /* LaunchScreen.xib in Resources */,
+				96BD44331A8AED8100216137 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96BD44391A8AED8100216137 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		96BD441F1A8AED8100216137 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96BD442E1A8AED8100216137 /* MainViewController.swift in Sources */,
+				96BD44291A8AED8100216137 /* AppDelegate.swift in Sources */,
+				96C8F4F61A8C428D005351B3 /* TabBarController.swift in Sources */,
+				96AED8E41B2B57370078BE54 /* CaneViewController.swift in Sources */,
+				96AED8E01B2B57100078BE54 /* RhizomeViewController.swift in Sources */,
+				963B83DD1A9B97F30072CD2D /* PlantingViewController.swift in Sources */,
+				96C0F2DE1A8C4CCC0002FEA8 /* InfoViewController.swift in Sources */,
+				96C49A4F1A9CD2D60080902E /* PlantingPopoverController.swift in Sources */,
+				96AED8DE1B2B4D240078BE54 /* NotesViewController.swift in Sources */,
+				96C43D1E1B28B2BA00A4D6D0 /* RenewBiomass.xcdatamodeld in Sources */,
+				96C43D1B1B28AD8000A4D6D0 /* Farmer.swift in Sources */,
+				96AED8E21B2B57220078BE54 /* ScoutingViewController.swift in Sources */,
+				96C8F4F41A8C366B005351B3 /* MapViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96BD44371A8AED8100216137 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96BD44421A8AED8100216137 /* RenewBiomassTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		96BD443D1A8AED8100216137 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96BD44221A8AED8100216137 /* RenewBiomass */;
+			targetProxy = 96BD443C1A8AED8100216137 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		96BD442F1A8AED8100216137 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				96BD44301A8AED8100216137 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		96BD44341A8AED8100216137 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				96BD44351A8AED8100216137 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		96BD44431A8AED8100216137 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		96BD44441A8AED8100216137 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		96BD44461A8AED8100216137 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RenewBiomass/RenewBiomass.entitlements;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "$(PRODUCT_NAME)/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = RenewBiomass;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		96BD44471A8AED8100216137 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RenewBiomass/RenewBiomass.entitlements;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "$(PRODUCT_NAME)/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = RenewBiomass;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		96BD44491A8AED8100216137 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "$(PRODUCT_NAME)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = RenewBiomassTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RenewBiomass.app/RenewBiomass";
+			};
+			name = Debug;
+		};
+		96BD444A1A8AED8100216137 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "$(PRODUCT_NAME)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = RenewBiomassTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RenewBiomass.app/RenewBiomass";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		96BD441E1A8AED8100216137 /* Build configuration list for PBXProject "RenewBiomass" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96BD44431A8AED8100216137 /* Debug */,
+				96BD44441A8AED8100216137 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96BD44451A8AED8100216137 /* Build configuration list for PBXNativeTarget "RenewBiomass" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96BD44461A8AED8100216137 /* Debug */,
+				96BD44471A8AED8100216137 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96BD44481A8AED8100216137 /* Build configuration list for PBXNativeTarget "RenewBiomassTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96BD44491A8AED8100216137 /* Debug */,
+				96BD444A1A8AED8100216137 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		96C43D1C1B28B2BA00A4D6D0 /* RenewBiomass.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				96C43D1D1B28B2BA00A4D6D0 /* RenewBiomass.xcdatamodel */,
+			);
+			currentVersion = 96C43D1D1B28B2BA00A4D6D0 /* RenewBiomass.xcdatamodel */;
+			path = RenewBiomass.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 96BD441B1A8AED8100216137 /* Project object */;
+}
