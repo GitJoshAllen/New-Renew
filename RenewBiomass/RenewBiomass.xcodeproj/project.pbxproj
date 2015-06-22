@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		962F271E1B38B50800C743D7 /* CanePopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F271D1B38B50800C743D7 /* CanePopoverController.swift */; };
 		963B83DD1A9B97F30072CD2D /* PlantingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963B83DC1A9B97F30072CD2D /* PlantingViewController.swift */; };
 		96AED8DE1B2B4D240078BE54 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AED8DD1B2B4D240078BE54 /* NotesViewController.swift */; };
 		96AED8E01B2B57100078BE54 /* RhizomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AED8DF1B2B57100078BE54 /* RhizomeViewController.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		962F271D1B38B50800C743D7 /* CanePopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanePopoverController.swift; sourceTree = "<group>"; };
 		963B83DC1A9B97F30072CD2D /* PlantingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantingViewController.swift; sourceTree = "<group>"; };
 		96AED8DD1B2B4D240078BE54 /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		96AED8DF1B2B57100078BE54 /* RhizomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhizomeViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				96AED8DF1B2B57100078BE54 /* RhizomeViewController.swift */,
 				96AED8E11B2B57220078BE54 /* ScoutingViewController.swift */,
 				96AED8E31B2B57370078BE54 /* CaneViewController.swift */,
+				962F271D1B38B50800C743D7 /* CanePopoverController.swift */,
 			);
 			path = RenewBiomass;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				96AED8E01B2B57100078BE54 /* RhizomeViewController.swift in Sources */,
 				963B83DD1A9B97F30072CD2D /* PlantingViewController.swift in Sources */,
 				96C0F2DE1A8C4CCC0002FEA8 /* InfoViewController.swift in Sources */,
+				962F271E1B38B50800C743D7 /* CanePopoverController.swift in Sources */,
 				96C49A4F1A9CD2D60080902E /* PlantingPopoverController.swift in Sources */,
 				96AED8DE1B2B4D240078BE54 /* NotesViewController.swift in Sources */,
 				96C43D1E1B28B2BA00A4D6D0 /* RenewBiomass.xcdatamodeld in Sources */,

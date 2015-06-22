@@ -378,6 +378,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
                 destinationController.acres = acresText.text
                 destinationController.farmNo = entityText.text
                 destinationController.tractNo = tractNoStrings[tractRow]
+                //county
                 destinationController.optionSelected = "Cane"
             }
         }
