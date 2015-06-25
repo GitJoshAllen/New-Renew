@@ -84,7 +84,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         setUpPickerViews()
         
         if let date = defaults.objectForKey("cloudKitDate") as? NSDate {
-            defaults.setObject(NSDate(), forKey: "cloudKitDate")
+            
         } else {
             let calendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)
             let components = NSDateComponents()
@@ -95,6 +95,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
             defaults.setObject(newDate, forKey: "cloudKitDate")
         }
         self.getRecordsFromCloud()
+        defaults.setObject(NSDate(), forKey: "cloudKitDate")
     }
     
     func setUpPickerViews() {
@@ -178,24 +179,44 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if row != 0 {
             if pickerView.tag == 0 {
+                
                 self.farmerText.resignFirstResponder()
                 farmerText.text = farmerPickerStrings[row]
                 farmerRow = row
                 
-                self.entityText.enabled = false
-                self.entityText.text = ""
-                self.locationText.enabled = false
-                self.locationText.text = ""
-                self.acresText.enabled = false
-                self.acresText.text = ""
-                
-                self.addressStrings = []
-                self.cityStrings = []
-                self.stateStrings = []
-                self.zipCodeStrings = []
-                self.tractNoStrings = []
-                
-                loadDataInEntityPicker(firstNameStrings[farmerRow - 1], lastName: lastNameStrings[farmerRow - 1])
+//                if row == 1 {
+//                    self.entityText.enabled = false
+//                    self.locationText.enabled = false
+//                    self.acresText.enabled = false
+//                    
+//                    self.rhizome.enabled = true
+//                    self.scouting.enabled = true
+//                    self.planting.enabled = true
+//                    self.cane.enabled = true
+//                    
+//                    farmerText.text = ""
+//                    entityText.text = ""
+//                    locationText.text = ""
+//                    acresText.text = ""
+//                    entityText.text = ""
+//                    tractNoStrings = ["",""]
+//                    tractRow = 0
+//                } else {
+                    self.entityText.enabled = false
+                    self.entityText.text = ""
+                    self.locationText.enabled = false
+                    self.locationText.text = ""
+                    self.acresText.enabled = false
+                    self.acresText.text = ""
+                    
+                    self.addressStrings = []
+                    self.cityStrings = []
+                    self.stateStrings = []
+                    self.zipCodeStrings = []
+                    self.tractNoStrings = []
+                    
+                    loadDataInEntityPicker(firstNameStrings[farmerRow - 1], lastName: lastNameStrings[farmerRow - 1])
+//                }
             } else if pickerView.tag == 1 {
                 self.entityText.resignFirstResponder()
                 entityText.text = entityPickerStrings[row]
@@ -378,18 +399,31 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
                 destinationController.acres = acresText.text
                 destinationController.farmNo = entityText.text
                 destinationController.tractNo = tractNoStrings[tractRow]
-                //county
+                destinationController.county = ""
                 destinationController.optionSelected = "Cane"
             }
         }
     }
     
     func getRecordsFromCloud() {
-        
+        var combinedDate:NSDate!
         let cloudContainer = CKContainer.defaultContainer()
         let publicDatabase = CKContainer.defaultContainer().publicCloudDatabase
-        let date = defaults.objectForKey("cloudKitDate") as! NSDate
-        let predicate = NSPredicate(format: "creationDate > %@", date)
+        
+        if let date = defaults.objectForKey("cloudKitDate") as? NSDate {
+            combinedDate = date
+        } else {
+            let calendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)
+            let components = NSDateComponents()
+            components.year = 2015
+            components.month = 6
+            components.day = 1 //midnight on 06/01/2015
+            var newDate = calendar!.dateFromComponents(components)
+            combinedDate = newDate
+            defaults.setObject(newDate, forKey: "cloudKitDate")
+        }
+        
+        let predicate = NSPredicate(format: "modificationDate > %@", combinedDate)
         let query = CKQuery(recordType: "Farmer", predicate: predicate)
         
         publicDatabase.performQuery(query, inZoneWithID: nil, completionHandler: {
@@ -410,7 +444,6 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         if let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
             for record in farmers {
                 farmer = NSEntityDescription.insertNewObjectForEntityForName("Farmer", inManagedObjectContext: managedObjectContext) as! Farmer
-                
                 farmer.firstName = record.objectForKey("FirstName") as! String
                 farmer.lastName = record.objectForKey("LastName") as! String
                 farmer.address = record.objectForKey("Address") as! String
@@ -418,13 +451,12 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
                 farmer.state = record.objectForKey("State") as! String
                 farmer.zipCode = record.objectForKey("ZipCode") as! Int
                 farmer.phoneNumber = record.objectForKey("PhoneNumber") as! String
-                farmer.email = record.objectForKey("Email") as! String
+                farmer.email = ""//record.objectForKey("Email") as! String
                 farmer.farmNo = record.objectForKey("FarmNo") as! Int
                 farmer.tractNo = record.objectForKey("TractNo") as! Int
                 farmer.contactNumber = record.objectForKey("ContactNumber") as! Int
                 farmer.acres = record.objectForKey("Acres") as! Double
                 farmer.county = record.objectForKey("County") as! String
-                
                 var error:NSError?
                 if managedObjectContext.save(&error) != true {
                     println("insert error: \(error!.localizedDescription)")

@@ -15,6 +15,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     var acres:String?
     var farmNo:String?
     var tractNo:String?
+    var county:String?
     var optionSelected:String?
     
     override func viewDidLoad() {
@@ -26,6 +27,10 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         }
         
         if let controller = viewControllers![1] as? ScoutingViewController {
+            controller.farmer = farmer
+            controller.acres = acres
+            controller.farmNo = farmNo
+            controller.tractNo = tractNo
         }
         
         if let controller = viewControllers![2] as? PlantingViewController {
@@ -38,6 +43,13 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         }
         
         if let controller = viewControllers![3] as? CaneViewController {
+            controller.farmer = farmer
+            controller.entity = entity
+            controller.location = location
+            controller.acres = acres
+            controller.farmNo = farmNo
+            controller.tractNo = tractNo
+            controller.county = county
         }
         
         if let controller = viewControllers![4] as? MapViewController {
