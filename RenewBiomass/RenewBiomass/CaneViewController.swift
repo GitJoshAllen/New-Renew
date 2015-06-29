@@ -11,7 +11,7 @@ import MessageUI
 class CaneViewController: UIViewController, UIPopoverPresentationControllerDelegate, SendDataFromCanePopoverDelegate, MFMailComposeViewControllerDelegate {
     
     @IBAction func cancel(sender: UIButton) {
-        let alertController = UIAlertController(title: "Cancel?", message: "All text will be lost.", preferredStyle: .Alert)
+        let alertController = UIAlertController(title: "Close?", message: "All text will be lost.", preferredStyle: .Alert)
         alertController.addAction(UIAlertAction(title: "Yes", style: .Default, handler: {
             (action: UIAlertAction!) in
             self.dismissViewControllerAnimated(false, completion: nil)
@@ -74,14 +74,7 @@ class CaneViewController: UIViewController, UIPopoverPresentationControllerDeleg
             return
         }
         
-//        var emailTitle = "Farmer: " + farmer!
-//        emailTitle += " Entity: " + entity!
-//        emailTitle += " Location: " + location!
-//        emailTitle += " Acres: " + acres!
-        
         var emailTitle = "Cane Harvest Report"
-        
-        var messageBody = ""
         
         let toRecipients = ["jasonneutron@yahoo.com"]
         
@@ -89,7 +82,7 @@ class CaneViewController: UIViewController, UIPopoverPresentationControllerDeleg
         let mailComposer = MFMailComposeViewController()
         mailComposer.mailComposeDelegate = self;
         mailComposer.setSubject(emailTitle)
-        mailComposer.setMessageBody(messageBody, isHTML: true)
+        mailComposer.setMessageBody("", isHTML: true)
         mailComposer.setToRecipients(toRecipients)
         
         // Determine the MIME type
@@ -98,39 +91,61 @@ class CaneViewController: UIViewController, UIPopoverPresentationControllerDeleg
         // 1. Create a print formatter
         var messageBody2 = ""
         
-        messageBody2 +=  "<table width=100% rules='all' style='border-color: #000; font: 15pt Arial;' border=0 cellpadding=0>"
-        messageBody2 += "<tr><td height=65 width=216></td><td align=center valign=middle>Cane Harvest Report</td></tr>"
+        messageBody2 += "<table width=100% rules='all' style='border: #fff 0px; font: 15pt Arial;' border=0 cellpadding=0 cellspacing=0>"
+        messageBody2 += "<tr><td height=54 width=232></td><td align=center valign=middle></td></tr>"
+        messageBody2 += "<tr><td height=65 width=232></td><td align=center valign=middle>Cane Harvest Report</td></tr>"
         messageBody2 += "</table><br>"
         
-        messageBody2 +=  "<table width=100% rules='all' style='border-color: #000; font: 11pt Arial;' border=1 cellpadding=0>"
-        messageBody2 += "<tr><td width=60% style='background: #fff;'>"
-        messageBody2 += "<strong>Date: </strong>" + harvestDateTextField.text
-        messageBody2 += "</td><td width=40% style='background: #fff;'>"
-        messageBody2 += "<strong>Farm # </strong>" + farmNumberTextField.text + "</td></tr>"
-        messageBody2 += "<tr><td width=60% style='background: #fff;'>"
-        messageBody2 += "<strong>Planter Operator: </strong>" + producerTextField.text + "</td><td width=40% style='background: #fff;'><strong>"
-        messageBody2 += "Tract # </strong>" + tractNumberTextField.text + "</td></tr>"
-        messageBody2 += "</table><br>"
+        messageBody2 += "<table width=100% rules='all' style='border-color: #000; font: 10pt Arial;' border=1 cellpadding=3>"
+        messageBody2 += "<tr><td valign=middle width=15% style='background: #fff;' align=center><strong>Producer Name:</strong></td><td valign=middle width=85% style='background: #fff;' colspan=10>" + producerTextField.text + "</td></tr>"
+        messageBody2 += "<tr><td valign=middle width=15% style='background: #fff;' align=center><strong>County:</strong></td><td valign=middle width=85% style='background: #fff;' colspan=10>" + countyTextField.text + "</td></tr>"
+        messageBody2 += "<tr><td valign=middle width=15% style='background: #fff;' align=center><strong>Farm #:</strong></td><td valign=middle width=85% style='background: #fff;' colspan=10>" + farmNumberTextField.text + "</td></tr>"
+        messageBody2 += "<tr><td valign=middle width=15% style='background: #fff;' align=center><strong>Tract #:</strong></td><td valign=middle width=85% style='background: #fff;' colspan=10>" + tractNumberTextField.text + "</td></tr>"
+        messageBody2 += "<tr><td valign=middle width=15% style='background: #fff;' align=center><strong>Acres Harvested:</strong></td><td valign=middle width=85% style='background: #fff;' colspan=10>" + acresHarvestedTextField.text + "</td></tr>"
+        messageBody2 += "<tr><td valign=middle width=15% style='background: #fff;' align=center><strong>Harvest Date:</strong></td><td valign=middle width=85% style='background: #fff;' colspan=10>" + harvestDateTextField.text + "</td></tr>"
+        messageBody2 += "<tr><td valign=middle width=15% style='background: #fff;' align=center><strong>Number of Bales:</strong></td><td valign=middle width=85% style='background: #fff;' colspan=10>" + numberOfBalesTextField.text + "</td></tr>"
         
-//        messageBody2 += "<table width=100% rules='all' style='border-color: #000; font: 9pt Lucida Grande;' border=1 cellpadding=0>"
-//        messageBody2 += "<tr><td width=10% style='background: #fff;'><strong>Bag Tag #</strong></td><td width=10% style='background: #fff;'><strong>Trailer #</strong></td><td width=10% style='background: #fff;'><strong>WH BOL #</strong></td><td width=10% style='background: #fff;'><strong>Bag Weight</strong></td><td width=20% style='background: #fff;'><strong>Total # of acres planted today</strong></td><td width=20% style='background: #fff;'><strong>Total #s Today</strong></td><td width=20% style='background: #fff;'><strong>Notes</strong></td></tr>"
-//        
-//        messageBody2 += "<tr><td style='background: #fff;'>" + bagArray[0] + "</td><td style='background: #fff;'>" + trailerArray[0] + "</td><td style='background: #fff;'>" + whbolArray[0] + "</td><td style='background: #fff;'>" + bagweightArray[0] + "</td><td rowspan="
-//        
-//        var n = self.bagArray.count
-//        var x = totalNumbersTextField.text
-//        var y = totalAcresTextField.text
-//        messageBody2 += String(n) + " style='background: #fff;'>"
-//        messageBody2 += y + "</td><td rowspan="
-//        messageBody2 += String(n) + " style='background: #fff;'>"
-//        messageBody2 += x + "</td><td rowspan="
-//        messageBody2 += String(n) + " style='background: #fff;'>Notes</td></tr>"
-//        
-//        for (var i = 1; i<bagArray.count; i++) {
-//            messageBody2 += "<tr><td>" + bagArray[i] + "</td><td>" + trailerArray[i] + "</td><td>" + whbolArray[i] + "</td><td>" + bagweightArray[i] + "</td></tr>"
-//        }
-//        
-//        messageBody2 += "</table>"
+        messageBody2 += "<tr><td valign=middle width=15% style='background: #fff;' align=center><strong>Total Tons:</strong></td><td valign=middle width=35% style='background: #fff;' colspan=4>" + totalTonsTextField.text + "</td>"
+        messageBody2 += "<td valign=middle width=15% style='background: #fff;' align=center colspan=2><strong>Average Tons/Acre:</strong></td><td valign=middle width=35% style='background: #fff;' colspan=4>" + averageTonsTextField.text + "</td></tr>"
+        messageBody2 += "<tr><td valign=middle width=15% style='background: #fff;' align=center><strong>Bale Type:</strong></td><td valign=middle width=35% style='background: #fff;' colspan=4>" + baleTypeTextField.text + "</td>"
+        messageBody2 += "<td valign=middle width=15% style='background: #fff;' align=center colspan=2><strong>Number of Bales Sampled:</strong></td><td valign=middle width=35% style='background: #fff;' colspan=4>" + numberSampledTextField.text + "</td></tr>"
+        
+        var quotient = Int(ceil(Double(weightArray.count) / 5.0)) + 1
+        messageBody2 += "<tr><td rowspan=" + String(quotient) + " align=center width=15% valign=middle style='background: #fff;'><strong>Sample Bale Readings:</strong></td>"
+        
+        messageBody2 += "<td align=center valign=middle width=12% style='background: #fff;'><strong>Weight</strong></td><td align=center valign=middle width=5% style='background: #fff;'><strong>%</strong></td><td align=center valign=middle width=12% style='background: #fff;'><strong>Weight</strong></td><td align=center valign=middle width=5% style='background: #fff;'><strong>%</strong></td><td align=center valign=middle width=12% style='background: #fff;'><strong>Weight</strong></td><td align=center valign=middle width=5% style='background: #fff;'><strong>%</strong></td><td align=center valign=middle width=12% style='background: #fff;'><strong>Weight</strong></td><td align=center valign=middle width=5% style='background: #fff;'><strong>%</strong></td><td align=center valign=middle width=12% style='background: #fff;'><strong>Weight</strong></td><td align=center valign=middle width=5% style='background: #fff;'><strong>%</strong></td></tr>"
+        
+        var remainder = 5 - (weightArray.count % 5)
+        if weightArray.count > 0 {
+            for index in 1...weightArray.count {
+                if index % 5 == 1 {
+                    messageBody2 += "<tr>"
+                    println("TR")
+                }
+                messageBody2 += "<td align=center valign=middle width=12% style='background: #fff;'>1000</td><td align=center valign=middle width=5% style='background: #fff;'>5</td>"
+                println("-TD-")
+                if index % 5 == 0 {
+                    messageBody2 += "</tr>"
+                    println("/TR")
+                }
+            }
+            if remainder != 5 {
+                for index in 1...remainder {
+                    messageBody2 += "<td align=center valign=middle width=12% style='background: #fff;'></td><td align=center valign=middle width=5% style='background: #fff;'></td>"
+                    println("-TDempty-")
+                }
+            }
+            if weightArray.count % 5 != 0 {
+                messageBody2 += "</tr>"
+                println("/TRend")
+            }
+        }
+        
+        messageBody2 += "<tr><td valign=middle width=15% style='background: #fff;' align=center><strong>Average Bale Weight:</strong></td><td valign=middle width=85% style='background: #fff;' colspan=10>" + averageWeightTextField.text + "</td></tr>"
+        messageBody2 += "<tr><td valign=middle width=15% style='background: #fff;' align=center><strong>Average Moisture:</strong></td><td valign=middle width=85% style='background: #fff;' colspan=10>" + averageMoistureTextField.text + "</td></tr>"
+        messageBody2 += "<tr><td valign=middle width=15% style='background: #fff;' align=center><strong>Notes:</strong></td><td valign=top width=85% style='background: #fff;' colspan=10>" + "Notes" + "</td></tr>"
+        
+        messageBody2 += "</table>"
         
         let fmt = UIMarkupTextPrintFormatter(markupText: messageBody2)
         
@@ -149,8 +164,7 @@ class CaneViewController: UIViewController, UIPopoverPresentationControllerDeleg
         UIGraphicsBeginPDFContextToData(pdfData, CGRectZero, nil)
         
         let myImage = UIImage(named: "logo")
-        //let rect = CGRectMake(0.0, 0.0, 284.0, 85.0)
-        let rect = CGRectMake(0.0, 0.0, 216.0, 64.65)
+        let rect = CGRectMake(16.0, 40.0, 216.0, 64.65)
         
         //for i in 1...render.numberOfPages() {
         UIGraphicsBeginPDFPageWithInfo(page, nil)

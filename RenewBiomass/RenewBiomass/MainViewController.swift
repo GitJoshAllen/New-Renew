@@ -183,40 +183,20 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
                 self.farmerText.resignFirstResponder()
                 farmerText.text = farmerPickerStrings[row]
                 farmerRow = row
+                self.entityText.enabled = false
+                self.entityText.text = ""
+                self.locationText.enabled = false
+                self.locationText.text = ""
+                self.acresText.enabled = false
+                self.acresText.text = ""
                 
-//                if row == 1 {
-//                    self.entityText.enabled = false
-//                    self.locationText.enabled = false
-//                    self.acresText.enabled = false
-//                    
-//                    self.rhizome.enabled = true
-//                    self.scouting.enabled = true
-//                    self.planting.enabled = true
-//                    self.cane.enabled = true
-//                    
-//                    farmerText.text = ""
-//                    entityText.text = ""
-//                    locationText.text = ""
-//                    acresText.text = ""
-//                    entityText.text = ""
-//                    tractNoStrings = ["",""]
-//                    tractRow = 0
-//                } else {
-                    self.entityText.enabled = false
-                    self.entityText.text = ""
-                    self.locationText.enabled = false
-                    self.locationText.text = ""
-                    self.acresText.enabled = false
-                    self.acresText.text = ""
-                    
-                    self.addressStrings = []
-                    self.cityStrings = []
-                    self.stateStrings = []
-                    self.zipCodeStrings = []
-                    self.tractNoStrings = []
-                    
-                    loadDataInEntityPicker(firstNameStrings[farmerRow - 1], lastName: lastNameStrings[farmerRow - 1])
-//                }
+                self.addressStrings = []
+                self.cityStrings = []
+                self.stateStrings = []
+                self.zipCodeStrings = []
+                self.tractNoStrings = []
+                
+                loadDataInEntityPicker(firstNameStrings[farmerRow - 1], lastName: lastNameStrings[farmerRow - 1])
             } else if pickerView.tag == 1 {
                 self.entityText.resignFirstResponder()
                 entityText.text = entityPickerStrings[row]
@@ -430,13 +410,15 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
             results, error in
             if error == nil {
                 self.farmers = results as! [CKRecord]
-                self.addFarmersToCoreData()
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.addFarmersToCoreData()
+                    self.spinner.stopAnimating()
+                    self.overlayView.removeFromSuperview()
+                    self.loadDataInFarmerPicker()
+                })
             } else {
                 println(error)
             }
-            self.spinner.stopAnimating()
-            self.overlayView.removeFromSuperview()
-            self.loadDataInFarmerPicker()
         })
     }
     

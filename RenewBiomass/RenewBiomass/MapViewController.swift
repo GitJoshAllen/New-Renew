@@ -62,10 +62,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             annotationView.canShowCallout = true
         }
         
-//        let leftIconView = UIImageView(frame: CGRectMake(0, 0, 53, 53))
-//        leftIconView.image = UIImage(data: restaurant.image)
-//        annotationView.leftCalloutAccessoryView = leftIconView
-        
         return annotationView
     }
     

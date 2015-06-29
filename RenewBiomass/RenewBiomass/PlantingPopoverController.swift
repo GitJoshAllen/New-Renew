@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SendDataFromPopoverDelegate {
-    func returnData(bag:String, trailer:String, whbol:String, bagweight:String)
+    func returnData(bag:String, trailer:String, bol:String, bagweight:String)
 }
 
 class PlantingPopoverController: UIViewController {
@@ -17,12 +17,12 @@ class PlantingPopoverController: UIViewController {
     
     var sentBag:String?
     var sentTrailer:String?
-    var sentWhbol:String?
+    var sentBol:String?
     var sentBagweight:String?
     
     @IBOutlet weak var bagText: UITextField!
     @IBOutlet weak var trailerText: UITextField!
-    @IBOutlet weak var whbolText: UITextField!
+    @IBOutlet weak var bolText: UITextField!
     @IBOutlet weak var bagweightText: UITextField!
     
     @IBAction func addItem(sender: UIButton) {
@@ -30,19 +30,19 @@ class PlantingPopoverController: UIViewController {
             
             let returnBag:String = bagText.text
             let returnTrailer:String = trailerText.text
-            let returnWhbol:String = whbolText.text
+            let returnBol:String = bolText.text
             let returnBagweight:String = bagweightText.text
 
-            delegate!.returnData(returnBag, trailer: returnTrailer, whbol: returnWhbol, bagweight: returnBagweight)
+            delegate!.returnData(returnBag, trailer: returnTrailer, bol: returnBol, bagweight: returnBagweight)
             
-            //dismissViewControllerAnimated(false, completion: nil)
+            dismissViewControllerAnimated(false, completion: nil)
         }
     }
     
     override func viewDidLoad() {
         bagText.text = sentBag
         trailerText.text = sentTrailer
-        whbolText.text = sentWhbol
+        bolText.text = sentBol
         bagweightText.text = sentBagweight
     }
 }
