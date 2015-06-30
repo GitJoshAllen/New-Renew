@@ -53,8 +53,70 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     @IBOutlet weak var locationText:UITextField!
     @IBOutlet weak var acresText:UITextField!
     
+//    var lineArray:[String]!
+//    var line = 1
+//    
+//    func saveToCloudKit(whichIndex:Int) {
+//        if whichIndex < lineArray.count {
+//            let cloudContainer = CKContainer.defaultContainer()
+//            let publicDatabase = CKContainer.defaultContainer().publicCloudDatabase
+//            
+//            var columnArray:[String] = lineArray[whichIndex].componentsSeparatedByString(",")
+//            
+//            var record = CKRecord(recordType: "Farmer")
+//            record.setValue(columnArray[0], forKey: "FirstName")
+//            record.setValue(columnArray[1], forKey: "LastName")
+//            record.setValue(columnArray[2], forKey: "Address")
+//            record.setValue(columnArray[3], forKey: "City")
+//            record.setValue(columnArray[4], forKey: "State")
+//            record.setValue(columnArray[5].toInt(), forKey: "ZipCode")
+//            record.setValue(columnArray[6], forKey: "PhoneNumber")
+//            record.setValue(columnArray[7], forKey: "Email")
+//            record.setValue(columnArray[8].toInt(), forKey: "FarmNo")
+//            if columnArray[9].isEmpty {
+//                columnArray[9] = "999999"
+//            }
+//            record.setValue(columnArray[9].toInt(), forKey: "TractNo")
+//            record.setValue(columnArray[10], forKey: "County")
+//            record.setValue((columnArray[11] as NSString).doubleValue, forKey: "Acres")
+//            if columnArray[12].toInt() == nil {
+//                columnArray[12] = "999999"
+//            }
+//            record.setValue(columnArray[12].toInt(), forKey: "ContactNumber")
+//            
+//            publicDatabase.saveRecord(record, completionHandler: { (record:CKRecord!, error:NSError!) -> Void in
+//                if error != nil {
+//                    println("Failed to save record to the cloud: \(error.description)")
+//                } else {
+//                    self.line++
+//                    self.saveToCloudKit(self.line)
+//                }
+//            })
+//        }
+//    }
+//    
+//    func parseFarmersCSV(text:String) {
+//        lineArray = text.componentsSeparatedByString("\r\n")
+//        saveToCloudKit(line)
+//        println(lineArray.count)
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        if let upload: AnyObject = defaults.objectForKey("uploadedToCloudKit") {
+//            println("not uploading because it is already done")
+//        } else {
+//            println("uploading because it is not already done")
+//            
+//            if let file = NSBundle.mainBundle().pathForResource("farmers3", ofType: "csv") {
+//                var error:NSError?
+//                var content = String(contentsOfFile: file, encoding: NSUTF8StringEncoding, error: &error)
+//                parseFarmersCSV(content!)
+//            }
+//            
+//            defaults.setObject("UPLOADED", forKey: "uploadedToCloudKit")
+//        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -433,12 +495,18 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
                 farmer.state = record.objectForKey("State") as! String
                 farmer.zipCode = record.objectForKey("ZipCode") as! Int
                 farmer.phoneNumber = record.objectForKey("PhoneNumber") as! String
-                farmer.email = ""//record.objectForKey("Email") as! String
+                
+                if let myEmail = record.objectForKey("Email") as? String {
+                    farmer.email = myEmail
+                } else {
+                    farmer.email = ""
+                }
+                
                 farmer.farmNo = record.objectForKey("FarmNo") as! Int
                 farmer.tractNo = record.objectForKey("TractNo") as! Int
-                farmer.contactNumber = record.objectForKey("ContactNumber") as! Int
                 farmer.acres = record.objectForKey("Acres") as! Double
                 farmer.county = record.objectForKey("County") as! String
+                farmer.contactNumber = record.objectForKey("ContactNumber") as! Int
                 var error:NSError?
                 if managedObjectContext.save(&error) != true {
                     println("insert error: \(error!.localizedDescription)")

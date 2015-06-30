@@ -1,0 +1,146 @@
+FirstName,LastName,Address,City,State,ZipCode,PhoneNumber,Email,FarmNo,TractNo,County,Acres,ContactNumber
+Dwayne,Allen,403 Winchester,Paragould,AR,72450,870-236-7751,,4281,23263,Greene,68.3,2004
+Dwayne,Allen,403 Winchester,Paragould,AR,72450,870-236-7751,,10028,1970,Greene,62.2,265
+Kyle,Baltz,828 Hwy 67 North,Pocahontas,AR,72455,870-892-4591,jeremy@aghq.com,4307,1594,Randolph,138.4,281
+Larry,Beliew,2472 GR 517 Rd,Marmaduke,AR,72443,870-236-6842,,1811,10050,Greene,25.2,211
+Larry,Beliew,2472 GR 517 Rd,Marmaduke,AR,72443,870-236-6842,,4486,10046,Greene,32.3,211
+Robin ,Boyd,3 Mathew Cove,Paragould,AR,72450,870-259-1837,,1551,2970,Greene,74.5,204
+Massey,Brinkley,33 GR 747 Rd,Paragould,AR,72450,870-236-0735,,973,681,Greene,2.7,228
+Devon,Bryant,2812 Sunnybrook Dr.,Jonesboro,AR,72404,870-897-2551,wdbryant@callrealty1.com,7548,1495,Craighead,146,215
+Devon,Bryant,2812 Sunnybrook Dr.,Jonesboro,AR,72404,870-897-2551,wdbryant@callrealty1.com,7549,1500,Craighead,35.7,215
+Devon,Bryant,2812 Sunnybrook Dr.,Jonesboro,AR,72404,870-897-2551,wdbryant@callrealty1.com,7150,11775,Craighead,150.7,247
+Devon,Bryant,2812 Sunnybrook Dr.,Jonesboro,AR,72404,870-897-2551,wdbryant@callrealty1.com,7,44,Greene,44,234
+Devon,Bryant,2812 Sunnybrook Dr.,Jonesboro,AR,72404,870-897-2551,wdbryant@callrealty1.com,5842,10952,Greene,6.2,260
+Devon,Bryant,2812 Sunnybrook Dr.,Jonesboro,AR,72404,870-897-2551,wdbryant@callrealty1.com,4712,1472,Lawrence,146.3,284
+Devon,Bryant,2812 Sunnybrook Dr.,Jonesboro,AR,72404,870-897-2551,wdbryant@callrealty1.com,500,1465,Lawrence,76.3,261
+Devon,Bryant,2812 Sunnybrook Dr.,Jonesboro,AR,72404,870-897-2551,wdbryant@callrealty1.com,4604,10394,Lawrence,79.9,236
+Devon,Bryant,2812 Sunnybrook Dr.,Jonesboro,AR,72404,870-897-2551,wdbryant@callrealty1.com,3491,2854,Lawrence,14.7,267
+Devon,Bryant,2812 Sunnybrook Dr.,Jonesboro,AR,72404,870-897-2551,wdbryant@callrealty1.com,3491,360,Lawrence,38.2,267
+Devon,Bryant,2812 Sunnybrook Dr.,Jonesboro,AR,72404,870-897-2551,wdbryant@callrealty1.com,1411,394,Lawrence,36.6,266
+Devon,Bryant,2812 Sunnybrook Dr.,Jonesboro,AR,72404,870-897-2551,wdbryant@callrealty1.com,3633,10828,Lawrence,13,266
+Futrell,Butler,43 CR 435 Rd,Rector,AR,72461,870-565-5588,,3760,1630,Clay,85.3,2003
+James,Compton,38 Greene 109 Road,Delaplaine,AR,72425,870-249-3247,,2315,1506,Greene,59.4,209
+James,Compton,38 Greene 109 Road,Delaplaine,AR,72425,870-249-3247,,2315,1287,Greene,12.5,209
+James,Compton,38 Greene 109 Road,Delaplaine,AR,72425,870-249-3247,,5233,10868,Greene,10.7,209
+Paul,Cooper,123 Greene 849 Rd,Paragould,AR,72450,870-239-5134,,4699,1932,Greene,22.9,222
+Paul ,Cooper,123 Greene 849 Rd,Paragould,AR,72450,870-239-5134,,4699,1828,Greene,56.1,222
+Buddy,Couch,2132 CR 760,Jonesboro,AR,72401,870-933-2057,,8176,3695,Craighead,13.1,217
+Buddy,Couch,2132 CR 760,Jonesboro,AR,72401,870-933-2057,,8176,3695,Craighead,37.3,217
+Buddy,Couch,2132 CR 760,Jonesboro,AR,72401,870-933-2057,buddy.couch@yahoo.com,8176,3695,Craig head,4.6,217
+Loyd,Cox,420 Eastwood,Walnut Ridge,AR,72476,870-886-6191,Jcox@bscn.com,4356,10040,Greene,91.7,206
+Gean,Davis,420 Eastwood,Walnut Ridge,AR,72476,870-886-6191,Jcox@bscn.com,4356,10040,Greene,91.7,206
+Tom,Cross,P.O Box 1243,Paragould,AR,72450,870-240-3069,,3666,9997,Greene,39.1,208
+Jerry,Daniels,34 Greene 953 Rd,Paragould,AR,72450,870-239-1932,,713,1798,Greene,52.8,2009
+Butch,Daniels,34 Greene 953 Rd,Paragould,AR,72450,870-239-1932,,713,1798,Greene,52.8,2009
+Johnny,Distretti,3328 Hwy 141 South ,Paragould,AR,72450,870-335-7969,,3052,176,Greene,38.3,201
+Keith,Fielder,2171 Greene 32,Bono ,AR,72416,870-933-8661,keithsts@yahoo.com,5773,39,Greene,27,202
+Keith,Fielder,2171 Greene 32,Bono,AR,72416,870-933-8661,keithsts@yahoo.com,6410,11705,Craighead,14.1,257
+Benny,Futrell,900 Hwy 230 E,Brookland,AR,72417,870-726-2993,,524,3354,Craighead,90.9,229
+Benny,Futrell,900 Hwy 230 E,Brookland,AR,72417,870-726-2993,,6381,3006,Craighead,35.9,229
+Velma ,Futrell,2683 Hwy 230 East,Brookland,AR,72417,870-726-2993,,524,3002,Craighead,61.5,230
+Velma ,Futrell,2683 Hwy 230 East,Brookland,AR,72417,870-726-2993,,653,3005,Craighead,57.4,230
+Mitchell,Gander,136 Greene 608 RD,Beech Grove,AR,72412,870-335-5236,,3720,2354,Greene,37.8,205
+Mikel,Boling,801 Greene,Paragould,AR,72450,870-245-3866,,5767,11276,Greene,32.2,244
+Roy,Hampton,812 Greene Rd 438,Marmaduke,AR,72443,901-634-7893,,4480,10485,Greene,118.5,255
+Eric,Hendrickson,127 Lawrence 335,Strawberry,AR,72469,870-612-0099,erichendrickson69@yahoo.com,1370,692,Lawrence,7.5,263
+Eric,Hendrickson,127 Lawrence 335,Strawberry,AR,72469,870-612-0099,erichendrickson69@yahoo.com,1196,683,Lawrence,24.3,271
+Eric,Hendrickson,127 Lawrence 335,Strawberry,AR,72469,870-612-0099,erichendrickson69@yahoo.com,5008,679,Lawrence,86,252
+Eric,Hendrickson,127 Lawrence 335,Strawberry,AR,72469,870-612-0099,erichendrickson69@yahoo.com,1333,406,Lawrence,116.1,235
+Eric,Hendrickson,127 Lawrence 335,Strawberry,AR,72469,870-612-0099,erichendrickson69@yahoo.com,5003,412,Lawrence,20.6,283
+Eric,Hendrickson,127 Lawrence 335,Strawberry,AR,72469,870-612-0099,erichendrickson69@yahoo.com,4688,10103,Lawrence,83,262
+Eric,Hendrickson,127 Lawrence 335,Strawberry,AR,72469,870-612-0099,erichendrickson69@yahoo.com,3169,115,Lawrence,63.5,251
+Eric,Hendrickson,127 Lawrence 335,Strawberry,AR,72469,870-612-0099,erichendrickson69@yahoo.com,4688,684,Lawrence,8.5,262
+Eric,Hendrickson,127 Lawrence 335,Strawberry,AR,72469,870-612-0099,erichendrickson69@yahoo.com,3169,115,Lawrence,106.3,251
+Eric,Hendrickson,127 Lawrence 335,Strawberry,AR,72469,870-612-0099,erichendrickson69@yahoo.com,1333,1025,Lawrence,21.7,286
+Eric,Hendrickson,127 Lawrence 335,Strawberry,AR,72469,870-612-0099,erichendrickson69@yahoo.com,1333,1020,Lawrence,84.1,272
+Eric,Hendrickson,127 Lawrence 335,Strawberry,AR,72469,870-612-0099,erichendrickson69@yahoo.com,5047,127,Lawrence,61.6,2017
+Eric,Hendrickson,127 Lawrence 335,Strawberry,AR,72469,870-612-0099,erichendrickson69@yahoo.com,5047,1124,Lawrence,46.3,2018
+David,Hodges,3022 CR 745,Jonesboro,AR,72401,870-935-2191,crfphrh@gmail.com,8096,12276,Craighead,22.5,216
+David,Hodges,3022 CR 745,Jonesboro,AR,72401,870-935-2191,crfphrh@gmail.com,7877,2657,Craighead,14.3,256
+David,Hodges,3022 CR 745,Jonesboro,AR,72401,870-935-2191,crfphrh@gmail.com,7877,2657,Craighead,32.2,256
+David,Hodges,3022 CR 745,Jonesboro,AR,72401,870-935-2191,crfphrh@gmail.com,8143,12487,Craighead,4.8,216
+David,Hodges,3022 CR 745,Jonesboro,AR,72401,870-935-2191,crfphrh@gmail.com,8143,12489,Craighead,6.8,216
+David,Hodges,3022 CR 745,Jonesboro,AR,72401,870-935-2191,crfphrh@gmail.com,8143,12490,Craighead,8.8,216
+David,Hodges,3022 CR 745,Jonesboro,AR,72401,870-935-2191,crfphrh@gmail.com,8143,12462,Craighead,6,216
+David,Hodges,3022 CR 745,Jonesboro,AR,72401,870-935-2191,crfphrh@gmail.com,1388,4118,Craighead,43.8,216
+David,Hodges,3022 CR 745,Jonesboro,AR,72401,870-935-2191,crfphrh@gmail.com,1378,4125,Craighead,84.2,216
+David,Hodges,3022 CR 745,Jonesboro,AR,72401,870-935-2191,crfphrh@gmail.com,3527,9951,Craighead,15.9,216
+David,Hodges,3022 CR 745,Jonesboro,AR,72401,870-935-2191,crfphrh@gmail.com,8096,12399,Craighead,17.4,216
+David,Hodges,3022 CR 745,Jonesboro,AR,72401,870-935-2191,crfphrh@gmail.com,8096,12400,Craighead,19.2,216
+Jeremy,Lambreth,4224 Hwy 230 East,Brookland,AR,72417,870-919-0860,JLFarms09@gmail.com,7743,12142,Craighead,79.4,231
+Jeremy,Lambreth,4224 Hwy 230 East,Brookland,AR,72417,870-919-0860,JLFarms09@gmail.com,7743,12420,Craighead,56.7,231
+Greg,Long,4366 Jackson 82,Tuckerman,AR,72473,870-512-8411,gtlong@att.blackberry.net,1018,2324,Jackson,156.8,213
+Greg,long,4366 Jackson 82,Tuckerman,AR,72473,870-512-8411,gtlong@att.blackberry.net,977,1482,Jackson,37.3,250
+Greg,Long,4366 Jackson 82,Tuckerman,AR,72473,870-512-8411,gtlong@att.blackberry.net,4356,1669,Jackson,101.7,259
+Greg,Long,4366 Jackson 82,Tuckerman,AR,72473,870-512-8411,gtlong@att.blackberry.net,4693,113,Lawrence,73.7,285
+Greg,Long,4366 Jackson 82,Tuckerman,AR,72473,870-512-8411,gtlong@att.blackberry.net,4693,342,Lawrence,28,285
+Greg,Long,4366 Jackson 82,Tuckerman,AR,72473,870-512-8411,gtlong@att.blackberry.net,3337,397,Lawrence,139.6,282
+Greg,Long,4366 Jackson 82,Tuckerman,AR,72473,870-512-8411,gtlong@att.blackberry.net,3337,341,Lawrence,33.8,285
+Bonnie,Manning,P.O. Box 24,Rector,AR,72461,870-240-5189,,4281,1694,Clay,22.3,2007
+Bonnie,Manning,P.O. Box 24,Rector,AR,72461,870-240-5189,,4281,1887,Clay,24.1,2007
+Bonnie,Manning,P.O. Box 24,Rector,AR,72461,870-240-5189,,4281,23475,Clay,58.9,2007
+Joey,Massey,33 GR 747 Rd,Paragould,AR,72450,870-236-0735,joey2massey@yahoo.com,796,1786,Greene,50.9,220
+Joey,Massey,33 GR 747 Rd,Paragould,AR,72450,870-236-0735,joey2massey@yahoo.com,5769,11278,Greene,3.9,220
+Joey,Massey,33 GR 747 Rd,Paragould,AR,72450,870-236-0735,joey2massey@yahoo.com,5856,11328,Greene,12,220
+Joey,Massey,33 GR 747 Rd,Paragould,AR,72450,870-236-0735,joey2massey@yahoo.com,5842,10952,Greene,29.1,2022
+Joey,Massey,33 GR 747 Rd,Paragould,AR,72450,870-236-0735,joey2massey@yahoo.com,4277,1683,Jackson,38,264
+Joey,Massey,33 GR 747 Rd,Paragould,AR,72450,870-236-0735,joey2massey@yahoo.com,4277,1451,Jackson,26,2021
+Ricky,McDowell,711 N. 6th Street,Marmaduke,AR,72443,870-595-4822,rickymcdowell@hotmail.com,5452,11064,Greene,34.5,254
+Kevin,Millikan,PO Box 271,Reutor,AR,72461,870-239-1040,imnitros@yahoo.com,6486,24245,Clay,6.4,207
+Kevin,Millikan,PO Box 271,Reutor,AR,72461,870-239-1040,imnitros@yahoo.com,6486,2704,Clay,6,207
+Kevin,Millikan,PO Box 271,Reutor,AR,72461,870-239-1040,imnitros@yahoo.com,3627,2414,Clay,25.7,207
+Kevin,Millikan,PO Box 271,Reutor,AR,72461,870-239-1040,imnitros@yahoo.com,3627,2397,Clay,38.7,207
+Kevin,Millikan,PO Box 271,Reutor,AR,72461,870-239-1040,imnitros@yahoo.com,6486,23728,Clay,3.7,207
+Brad,Nelson,4205 Sandra Cove,Jonesboro,AR,72401,870-240-5053,bnelson@craigheadelectric.coop,1553,2754,Greene,48.2,227
+Justin,Newsom,P.O. Box 26,Marmaduke,AR,72443,870-595-4574,,5746,3149,Greene,55.6,2005
+Justin,Newsom,P.O. Box 26,Marmaduke,AR,72443,870-595-4574,,5154,10847,Greene,23.7,2013
+Justin,Newsom,P.O. Box 26,Marmaduke,AR,72443,870-595-4574,,1791,3314,Greene,72.1,2019
+Roy,Newsom,P.O. Box 26,Marmaduke,AR,72443,870-595-4186,,1538,2926,Greene,104.6,2002
+Roy,Newsom,P.O. Box 26,Marmaduke,AR,72443,870-595-4186,,2230,3557,Greene,74.5,2001
+Terry,Norwood,11105 Hwy 141 N,Paragould,AR,72450,870-215-3721,,5852,2645,Greene,30.6,233
+Terry,Norwood,11105 Hwy 141 N,Paragould,AR,72450,870-215-3721,,5852,2648,Greene,3.8,233
+Terry,Norwood,11105 Hwy 141 N,Paragould,AR,72450,870-215-3721,,3824,2657,Greene,29,233
+Rainey,Nutt,3983 Hwy 168w,Bono,AR,72416,870-926-0260,raneynutt@yahoo.com,5842,,Greene,18.5,2020
+Rainey,Nutt,3983 Hwy 168w,Bono,AR,72416,870-926-0260,,2483,113,Greene,15,2012
+Rainey,Nutt,3983 Hwy 168w,Bono,AR,72416,870-926-0260,,2483,113,Greene,5,2011
+Kenneth,Phillips,3112 Sage Oak Cov,Jonesboro,AR,72401,870-239-1313,,5741,11247,Greene,53.8,224
+Kenneth,Phillips,3112 Sage Oak Cov,Jonesboro,AR,72401,870-239-1313,,5754,11250,Greene,19.5,237
+Kenneth,Phillips,3112 Sage Oak Cov,Jonesboro,AR,72401,870-239-1313,,5741,11247,Greene,78.7,212
+Rick,Pratt,2400 Greene Road 517,Marmaduke,AR,72443,870-236-2142,buffalorick@gmail.com,1517,10485,Greene,58.1,274
+Walter,Short,4908 Highway 141,Paragould,AR,72450,870-926-6320,walrshort@mac.com,5360,277,Greene,64.8,214
+Walter,Short,4908 Highway 141,Paragould,AR,72450,870-926-6320,walrshort@mac.com,269,9734,Greene,4.6,214
+Thomas,smart,459 CR 341,Piggott,AR,72454,870-598-2287,thsmart@centurytel.net,6667,2551,Clay,30.4,246
+JW,Starke,4673 Hwy 163,Jonesboro,AR,72407,870-935-2589,,1144,4149,Craighead,30.2,2006
+Cora,Steele,228 Lawrence Rd,Alicia ,AR,72410,870-219-2129,,5031,1541,Lawrence,19.6,276
+Cora,Steele,228 Lawrence Rd,Alicia ,AR,72410,870-219-2129,,5057,1467,Lawrence,40.3,276
+Cora,Steele,228 Lawrence Rd,Alicia ,AR,72410,870-219-2129,,5057,1849,Lawrence,24.8,276
+Ronald,Tritch,429 Greene 134 Rd,Paragould,AR,72450,870-586-0501,,2159,3521,Greene,44.1,277
+Jason,Tritch,429 Greene 134 Rd,Paragould,AR,72450,870-586-0501,,2159,3521,Greene,44.1,277
+Stacey,Tritch,429 Greene 134 Rd,Paragould,AR,72450,870-586-0501,,2159,3521,Greene,44.1,277
+Ronald,Tritch,429 Greene 134 Rd,Paragould,AR,72450,870-586-0501,,5191,3508,Greene,40.7,280
+Orin,Tritch,429 Greene 134 Rd,Paragould,AR,72450,870-586-0501,,5191,3508,Greene,40.7,280
+Ronald,Tritch,429 Greene 134 Rd,Paragould,AR,72450,870-586-0501,,3570,2177,Greene,60.6,279
+Cleo,Watkins,185 CR 300,Jonesboro,AR,72401,870-935-4838,bj.watkins120@yahoo.com,7664,10193,Craighead,30.7,230
+David,Watkins,35 CR 300,Jonesboro,AR,72401,870-932-7442,watkinsdklb@yahoo.com,4774,2303,Craighead,150.4,226
+David,Watkins,35 CR 300,Jonesboro,AR,72401,870-932-7442,watkinsdklb@yahoo.com,6711,9988,Craighead,71.8,226
+George,Willoughby,10 Elm Street,Marked Tree,AR,72365,870-358-4105,,4132,2926,Poinsett,56.9,253
+Jimmy,Woods,17410 Greene 507 Rd,Lafe,AR,72436,870-586-0544,,5504,1109,Greene,34.4,2010
+Jimmy,Woods,17410 Greene 507 Rd,Lafe,AR,72436,870-586-0544,,5504,11032,Greene,34.4,2010
+Stephen,Yount,1528 County Rd 453,Pollard,AR,72456,870-598-7251,ndyount@gmail.com,3711,1732,Clay,18.1,245
+Stephen,Yount,1528 County Rd 453,Pollard,AR,72456,870-598-7251,ndyount@gmail.com,6450,2010,Clay,17.3,245
+NuWay,,3171 Greene 905,Paragould,AR,72450,870-236-0551,plf@bscn.com,7063,24755,Clay,13.8,243
+NuWay,,3171 Greene 905,Paragould,AR,72450,870-236-0551,plf@bscn.com,7063,,Clay,72.56,243
+NuWay,,3171 Greene 905,Paragould,AR,72450,870-236-0551,plf@bscn.com,7063,,Clay,12.13,243
+NuWay,,3171 Greene 905,Paragould,AR,72450,870-236-0551,plf@bscn.com,7063,,Clay,13.23,243
+NuWay,,3171 Greene 905,Paragould,AR,72450,870-236-0551,plf@bscn.com,7063,,Clay,61.26,243
+NuWay,,3171 Greene 905,Paragould,AR,72450,870-236-0551,plf@bscn.com,7063,,Clay,71.4,243
+NuWay,,3171 Greene 905,Paragould,AR,72450,870-236-0551,plf@bscn.com,7063,,Clay,45.03,243
+NuWay,,3171 Greene 905,Paragould,AR,72450,870-236-0551,plf@bscn.com,7063,,Clay,6.66,243
+NuWay,,3171 Greene 905,Paragould,AR,72450,870-236-0551,plf@bscn.com,7063,,Clay,56.7,243
+NuWay,,3171 Greene 905,Paragould,AR,72450,870-236-0551,plf@bscn.com,7063,,Clay,22.82,243
+NuWay,,3171 Greene 905,Paragould,AR,72450,870-236-0551,plf@bscn.com,7063,,Clay,7.12,243
+NuWay,,3171 Greene 905,Paragould,AR,72450,870-236-0551,plf@bscn.com,7063,,Clay,2.01,243
+NuWay,,3171 Greene 905,Paragould,AR,72450,870-236-0551,plf@bscn.com,7063,,Clay,63.14,243
+NuWay,,3171 Greene 905,Paragould,AR,72450,870-236-0551,plf@bscn.com,7063,,Clay,93.47,243
+NuWay,,3171 Greene 905,Paragould,AR,72450,870-236-0551,plf@bscn.com,7063,,Clay,154.07,243
+NuWay,,3171 Greene 905,Paragould,AR,72450,870-236-0551,plf@bscn.com,7063,,Clay,116.01,243

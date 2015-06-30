@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		962F271E1B38B50800C743D7 /* CanePopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F271D1B38B50800C743D7 /* CanePopoverController.swift */; };
 		963B83DD1A9B97F30072CD2D /* PlantingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963B83DC1A9B97F30072CD2D /* PlantingViewController.swift */; };
+		969B28D91B41A630002BA749 /* farmers3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 969B28D81B41A630002BA749 /* farmers3.csv */; };
 		969ED2AD1B3DDD3500073221 /* ScoutingPopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969ED2AC1B3DDD3500073221 /* ScoutingPopoverController.swift */; };
 		96AED8DE1B2B4D240078BE54 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AED8DD1B2B4D240078BE54 /* NotesViewController.swift */; };
 		96AED8E01B2B57100078BE54 /* RhizomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AED8DF1B2B57100078BE54 /* RhizomeViewController.swift */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		962F271D1B38B50800C743D7 /* CanePopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanePopoverController.swift; sourceTree = "<group>"; };
 		963B83DC1A9B97F30072CD2D /* PlantingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantingViewController.swift; sourceTree = "<group>"; };
+		969B28D81B41A630002BA749 /* farmers3.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = farmers3.csv; sourceTree = "<group>"; };
 		969ED2AC1B3DDD3500073221 /* ScoutingPopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoutingPopoverController.swift; sourceTree = "<group>"; };
 		96AED8DD1B2B4D240078BE54 /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		96AED8DF1B2B57100078BE54 /* RhizomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhizomeViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		96BD44251A8AED8100216137 /* RenewBiomass */ = {
 			isa = PBXGroup;
 			children = (
+				969B28D81B41A630002BA749 /* farmers3.csv */,
 				96C43D121B27C34A00A4D6D0 /* RenewBiomass.entitlements */,
 				96BD44261A8AED8100216137 /* Supporting Files */,
 				96BD442F1A8AED8100216137 /* Main.storyboard */,
@@ -245,6 +248,7 @@
 			files = (
 				96BD44311A8AED8100216137 /* Main.storyboard in Resources */,
 				96BD44361A8AED8100216137 /* LaunchScreen.xib in Resources */,
+				969B28D91B41A630002BA749 /* farmers3.csv in Resources */,
 				96BD44331A8AED8100216137 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

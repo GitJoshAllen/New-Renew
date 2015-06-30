@@ -28,17 +28,28 @@ class ScoutingViewController: UIViewController, UIPopoverPresentationControllerD
     @IBOutlet weak var assessorText: UITextField!
     @IBOutlet weak var dateText: UITextField!
     
+    @IBOutlet weak var averagePlants: UILabel!
+    @IBOutlet weak var averageTillers: UILabel!
+    @IBOutlet weak var averageHeight: UILabel!
+    
     var plantsArray:[String] = []
     var tillersArray:[String] = []
     var heightArray:[String] = []
     
-    var columnLocation:CGFloat = 0.0
-    var rowLocation:CGFloat = 371.0
-    var rowHeight:CGFloat = 50.0
-    var offset:CGFloat = 49.0
+    var columnLocation:CGFloat = 99.0
+    var rowLocation:CGFloat = 311.0
+    var rowHeight:CGFloat = 48.0
+    var offset:CGFloat = 47.0
+    var rowWidth:CGFloat = 48.0
     
     var dataColumn:Int = 0
     var dataRow:Int = 0
+    
+    var numberOfColumns = 0
+    
+    var averageOfPlants:Double = 0.0
+    var averageOfTillers:Double = 0.0
+    var averageOfHeight:Double = 0.0
     
     var previousPlants:String = ""
     var previousTillers:String = ""
@@ -100,20 +111,30 @@ class ScoutingViewController: UIViewController, UIPopoverPresentationControllerD
     
     func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
         
-        switch result.value {
-        case MFMailComposeResultCancelled.value:
-            println("Mail cancelled")
-        case MFMailComposeResultSaved.value:
-            println("Mail saved")
-        case MFMailComposeResultSent.value:
-            println("Mail sent")
-        case MFMailComposeResultFailed.value:
-            println("Failed to send: \(error.localizedDescription)")
-        default: break
-            
-        }
+//        switch result.value {
+//        case MFMailComposeResultCancelled.value:
+//            println("Mail cancelled")
+//        case MFMailComposeResultSaved.value:
+//            println("Mail saved")
+//        case MFMailComposeResultSent.value:
+//            println("Mail sent")
+//        case MFMailComposeResultFailed.value:
+//            println("Failed to send: \(error.localizedDescription)")
+//        default: break
+//            
+//        }
         
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showScoutingPopover" {
+            let ppc:ScoutingPopoverController = segue.destinationViewController as! ScoutingPopoverController
+            ppc.delegate = self
+            ppc.sentPlants = previousPlants
+            ppc.sentTillers = previousTillers
+            ppc.sentHeight = previousHeight
+        }
     }
     
     @IBAction func cancel(sender: UIButton) {
@@ -137,42 +158,60 @@ class ScoutingViewController: UIViewController, UIPopoverPresentationControllerD
     }
     
     func returnFieldData(plants:String, tillers:String, height:String) {
-        addRow(plants, newTillers: tillers, newHeight: height)
+        addColumn(plants, newTillers: tillers, newHeight: height)
         dismissViewControllerAnimated(false, completion: nil)
     }
     
-    func addLabel(x:CGFloat, width:CGFloat, text:String) {
-        var label = UILabel(frame: CGRectMake(x, rowLocation, width, rowHeight))
+    func addLabel(y:CGFloat, width:CGFloat, text:String) {
+        var label = UILabel(frame: CGRectMake(columnLocation, y, width, rowHeight))
         label.layer.borderWidth = 1
         label.text = text
         label.textAlignment = .Center
         scoutingView.addSubview(label)
     }
     
-    func addRow(newPlants:String, newTillers:String, newHeight:String) {
-        if dataColumn == 0 && dataRow == 0 {
-            rowLocation += offset
-        }
+    func addColumn(newPlants:String, newTillers:String, newHeight:String) {
         
-        addLabel(CGFloat(16) + columnLocation, width: 93, text: newPlants)
-        addLabel(CGFloat(92 + 16) + columnLocation, width: 93, text: newTillers)
+        addLabel(rowLocation, width: rowWidth, text: newPlants)
+        addLabel(rowLocation + offset, width: rowWidth, text: newTillers)
+        addLabel(rowLocation + offset * 2, width: rowWidth, text: newTillers)
         
-        dataColumn += 1
-        columnLocation += 184
+        columnLocation += offset
         
-        if dataColumn > 3 {
-            dataColumn = 0
-            dataRow++
-            
-            rowLocation += offset
-            columnLocation = 0.0
-        }
         
         plantsArray.append(newPlants)
         tillersArray.append(newTillers)
+        heightArray.append(newHeight)
         
         previousPlants = newPlants
         previousTillers = newTillers
+        previousHeight = newHeight
+        
+        numberOfColumns++
+        
+        recalculateAverages()
+        
+        if numberOfColumns >= 12 {
+            addButton.enabled = false
+        }
+    }
+    
+    func recalculateAverages() {
+        averageOfPlants = sum(plantsArray) / Double(numberOfColumns)
+        averageOfTillers = sum(tillersArray) / Double(numberOfColumns)
+        averageOfHeight = sum(heightArray) / Double(numberOfColumns)
+        
+        averagePlants.text = String(stringInterpolationSegment: Double(round(averageOfPlants*100)/100))
+        averageTillers.text = String(stringInterpolationSegment: Double(round(averageOfTillers*100)/100))
+        averageHeight.text = String(stringInterpolationSegment: Double(round(averageOfHeight*100)/100))
+    }
+    
+    func sum(array:[String]) -> Double {
+        var sumOfElements:Double = 0.0
+        for index in 0...array.count - 1 {
+            sumOfElements += (array[index] as NSString).doubleValue
+        }
+        return sumOfElements
     }
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {

@@ -23,6 +23,8 @@ class CaneViewController: UIViewController, UIPopoverPresentationControllerDeleg
     var dataColumn:Int = 0
     var dataRow:Int = 0
     
+    var numberOfItems = 0
+    
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet var caneView: UIView!
     @IBOutlet weak var buttonFromTop: NSLayoutConstraint!
@@ -120,24 +122,19 @@ class CaneViewController: UIViewController, UIPopoverPresentationControllerDeleg
             for index in 1...weightArray.count {
                 if index % 5 == 1 {
                     messageBody2 += "<tr>"
-                    println("TR")
                 }
                 messageBody2 += "<td align=center valign=middle width=12% style='background: #fff;'>1000</td><td align=center valign=middle width=5% style='background: #fff;'>5</td>"
-                println("-TD-")
                 if index % 5 == 0 {
                     messageBody2 += "</tr>"
-                    println("/TR")
                 }
             }
             if remainder != 5 {
                 for index in 1...remainder {
                     messageBody2 += "<td align=center valign=middle width=12% style='background: #fff;'></td><td align=center valign=middle width=5% style='background: #fff;'></td>"
-                    println("-TDempty-")
                 }
             }
             if weightArray.count % 5 != 0 {
                 messageBody2 += "</tr>"
-                println("/TRend")
             }
         }
         
@@ -182,18 +179,18 @@ class CaneViewController: UIViewController, UIPopoverPresentationControllerDeleg
     
     func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
         
-        switch result.value {
-        case MFMailComposeResultCancelled.value:
-            println("Mail cancelled")
-        case MFMailComposeResultSaved.value:
-            println("Mail saved")
-        case MFMailComposeResultSent.value:
-            println("Mail sent")
-        case MFMailComposeResultFailed.value:
-            println("Failed to send: \(error.localizedDescription)")
-        default: break
-            
-        }
+//        switch result.value {
+//        case MFMailComposeResultCancelled.value:
+//            println("Mail cancelled")
+//        case MFMailComposeResultSaved.value:
+//            println("Mail saved")
+//        case MFMailComposeResultSent.value:
+//            println("Mail sent")
+//        case MFMailComposeResultFailed.value:
+//            println("Failed to send: \(error.localizedDescription)")
+//        default: break
+//            
+//        }
         
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -223,7 +220,7 @@ class CaneViewController: UIViewController, UIPopoverPresentationControllerDeleg
     func addRow(newWeight:String, newPercent:String) {
         if dataColumn == 0 && dataRow == 0 {
             rowLocation += offset
-            buttonFromTop.constant += offset
+            //buttonFromTop.constant += offset
         }
         
         addLabel(CGFloat(16) + columnLocation, width: 93, text: newWeight)
@@ -232,12 +229,16 @@ class CaneViewController: UIViewController, UIPopoverPresentationControllerDeleg
         dataColumn += 1
         columnLocation += 184
         
+        if dataColumn == 1 {
+            buttonFromTop.constant += offset
+        }
+        
         if dataColumn > 3 {
             dataColumn = 0
             dataRow++
             
             rowLocation += offset
-            buttonFromTop.constant += offset
+            //buttonFromTop.constant += offset
             columnLocation = 0.0
         }
         
@@ -246,6 +247,12 @@ class CaneViewController: UIViewController, UIPopoverPresentationControllerDeleg
         
         previousWeight = newWeight
         previousPercent = newPercent
+        
+        numberOfItems++
+        
+        if numberOfItems >= 40 {
+            addButton.enabled = false
+        }
     }
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {

@@ -54,6 +54,8 @@ class PlantingViewController: UIViewController, UIPopoverPresentationControllerD
     var previousBOL:String = ""
     var previousBagweight:String = ""
     
+    var numberOfRows = 0
+    
     @IBAction func sendEmail(sender: UIButton) {
         if !MFMailComposeViewController.canSendMail() {
             return
@@ -140,18 +142,18 @@ class PlantingViewController: UIViewController, UIPopoverPresentationControllerD
     
     func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
         
-        switch result.value {
-        case MFMailComposeResultCancelled.value:
-            println("Mail cancelled")
-        case MFMailComposeResultSaved.value:
-            println("Mail saved")
-        case MFMailComposeResultSent.value:
-            println("Mail sent")
-        case MFMailComposeResultFailed.value:
-            println("Failed to send: \(error.localizedDescription)")
-        default: break
-            
-        }
+//        switch result.value {
+//        case MFMailComposeResultCancelled.value:
+//            println("Mail cancelled")
+//        case MFMailComposeResultSaved.value:
+//            println("Mail saved")
+//        case MFMailComposeResultSent.value:
+//            println("Mail sent")
+//        case MFMailComposeResultFailed.value:
+//            println("Failed to send: \(error.localizedDescription)")
+//        default: break
+//            
+//        }
         
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -200,6 +202,12 @@ class PlantingViewController: UIViewController, UIPopoverPresentationControllerD
         previousTrailer = newTrailer
         previousBOL = newBol
         previousBagweight = newBagweight
+        
+        numberOfRows++
+        
+        if numberOfRows >= 15 {
+            addButton.enabled = false
+        }
     }
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {

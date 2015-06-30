@@ -20,6 +20,8 @@ class ScoutingPopoverController: UIViewController {
     var sentTillers:String?
     var sentHeight:String?
     
+    var isValid:Bool = true
+    
     @IBOutlet weak var plantsText: UITextField!
     @IBOutlet weak var tillersText: UITextField!
     @IBOutlet weak var heightText: UITextField!
@@ -31,14 +33,17 @@ class ScoutingPopoverController: UIViewController {
             let returnTillers:String = tillersText.text
             let returnHeight:String = heightText.text
             
-            delegate!.returnFieldData(returnPlants, tillers: returnTillers, height: returnHeight)
-            
-            dismissViewControllerAnimated(false, completion: nil)
+            if isValid {
+                delegate!.returnFieldData(returnPlants, tillers: returnTillers, height: returnHeight)
+                dismissViewControllerAnimated(false, completion: nil)
+            }
         }
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        plantsText.text = sentPlants
+        tillersText.text = sentTillers
+        heightText.text = sentHeight
     }
     
     override func didReceiveMemoryWarning() {
