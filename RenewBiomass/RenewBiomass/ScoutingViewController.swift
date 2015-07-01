@@ -17,8 +17,25 @@ class ScoutingViewController: UIViewController, UIPopoverPresentationControllerD
     var tractNo:String?
     var acres:String?
     
+    //added 1.3
+    var contactNo:String?
+    var email:String?
+    //end 1.3
+    
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet var scoutingView: UIView!
+    
+    var notes = ""
+    
+    func resignAll() {
+        self.producerText.resignFirstResponder()
+        self.countyText.resignFirstResponder()
+        self.farmNoText.resignFirstResponder()
+        self.tractNoText.resignFirstResponder()
+        self.acresText.resignFirstResponder()
+        self.assessorText.resignFirstResponder()
+        self.dateText.resignFirstResponder()
+    }
     
     @IBOutlet weak var producerText: UITextField!
     @IBOutlet weak var countyText: UITextField!
@@ -56,6 +73,14 @@ class ScoutingViewController: UIViewController, UIPopoverPresentationControllerD
     var previousHeight:String = ""
     
     @IBAction func sendEmail(sender: UIButton) {
+        resignAll()
+        
+        if let controller = self.tabBarController?.viewControllers![2] as? NotesViewController {
+            if let myNotes = controller.textView?.text {
+                notes = myNotes
+            }
+        }
+        
         if !MFMailComposeViewController.canSendMail() {
             return
         }
@@ -77,6 +102,87 @@ class ScoutingViewController: UIViewController, UIPopoverPresentationControllerD
         // 1. Create a print formatter
         var messageBody2 = ""
         
+        messageBody2 += "<table width=100% rules='all' style='border: #fff 0px; font: 15pt Arial;' border=0 cellpadding=0 cellspacing=0>"
+        messageBody2 += "<tr><td height=54 width=232></td><td align=center valign=middle></td></tr>"
+        messageBody2 += "<tr><td height=65 width=232></td><td align=center valign=middle>Field Assessment</td></tr>"
+        messageBody2 += "</table><br>"
+        
+        messageBody2 += "<table width=100% rules='all' style='border-color: #000; font: 11pt Arial;' border=1 cellpadding=3>"
+        messageBody2 += "<tr><td valign=middle width=60% style='background: #fff;' colspan=2><strong>Producer Name: </strong>" + producerText.text + "</td>"
+        messageBody2 += "<td valign=middle width=40% style='background: #fff;'><strong>County: </strong>" + countyText.text + "</td></tr>"
+        messageBody2 += "<tr><td valign=middle width=30% style='background: #fff;'><strong>Farm Number: </strong>" + farmNoText.text + "</td>"
+        messageBody2 += "<td valign=middle width=30% style='background: #fff;'><strong>Tract Number: </strong>" + tractNoText.text + "</td>"
+        messageBody2 += "<td valign=middle width=40% style='background: #fff;'><strong>Acres: </strong>" + acresText.text + "</td></tr>"
+        messageBody2 += "</table><br>"
+        
+        messageBody2 += "<center><font style='font: 9pt Arial;'><strong>Population Count:</strong></font></center>"
+        
+        messageBody2 += "<table width=100% rules='all' style='border-color: #000; font: 9pt Arial;' border=1 cellpadding=3>"
+        messageBody2 += "<tr><td align=center valign=middle width=11% style='background: #fff;'><strong>Sample</strong></td>"
+        for index in 1...12 {
+            messageBody2 += "<td align=center valign=middle width=6.5% style='background: #fff;'><strong>\(index)</strong></td>"
+        }
+        messageBody2 += "<td align=center valign=middle width=11% style='background: #fff;'><strong>Average</strong></td></tr>"
+        
+        var remainder = 12 - numberOfColumns
+        if numberOfColumns > 0 {
+            messageBody2 += "<tr><td align=center valign=middle width=11% style='background: #fff;'><strong>Plants</strong></td>"
+            for index in 0...numberOfColumns - 1 {
+                messageBody2 += "<td align=center valign=middle width=6.5% style='background: #fff;'>" + plantsArray[index] + "</td>"
+            }
+            for index in 1...remainder {
+                messageBody2 += "<td align=center valign=middle width=6.5% style='background: #fff;'></td>"
+            }
+            messageBody2 += "<td align=center valign=middle width=11% style='background: #fff;'><strong>" + String(stringInterpolationSegment: Double(round(averageOfPlants*100)/100)) + "</strong></td>"
+            messageBody2 += "</tr>"
+            messageBody2 += "<tr><td align=center valign=middle width=11% style='background: #fff;'><strong>Tillers</strong></td>"
+            for index in 0...numberOfColumns - 1 {
+                messageBody2 += "<td align=center valign=middle width=6.5% style='background: #fff;'>" + plantsArray[index] + "</td>"
+            }
+            for index in 1...remainder {
+                messageBody2 += "<td align=center valign=middle width=6.5% style='background: #fff;'></td>"
+            }
+            messageBody2 += "<td align=center valign=middle width=11% style='background: #fff;'><strong>" + String(stringInterpolationSegment: Double(round(averageOfTillers*100)/100)) + "</strong></td>"
+            messageBody2 += "</tr>"
+            messageBody2 += "<tr><td align=center valign=middle width=11% style='background: #fff;'><strong>Height</strong></td>"
+            for index in 0...numberOfColumns - 1 {
+                messageBody2 += "<td align=center valign=middle width=6.5% style='background: #fff;'>" + plantsArray[index] + "</td>"
+            }
+            for index in 1...remainder {
+                messageBody2 += "<td align=center valign=middle width=6.5% style='background: #fff;'></td>"
+            }
+            messageBody2 += "<td align=center valign=middle width=11% style='background: #fff;'><strong>" + String(stringInterpolationSegment: Double(round(averageOfHeight*100)/100)) + "</strong></td>"
+            messageBody2 += "</tr>"
+        }
+        messageBody2 += "</table><br>"
+        
+        messageBody2 += "<table width=100% rules='all' style='border-color: #000; font: 11pt Arial;' border=1 cellpadding=3>"
+        messageBody2 += "<tr><td valign=middle align=center width=15% style='background: #fff;'><strong>Notes:</strong></td>"
+        messageBody2 += "<td valign=top width=85% style='background: #fff;'>" + notes + "</td></tr>"
+        messageBody2 += "</table>"
+        
+        messageBody2 += "<table width=100% rules='all' style='border-color: #000; font: 11pt Arial;' border=1 cellpadding=3>"
+        messageBody2 += "<tr><td valign=middle width=60% style='background: #fff;'><strong>Assessor: </strong>" + assessorText.text + "</td>"
+        messageBody2 += "<td valign=middle width=40% style='background: #fff;'><strong>Date: </strong>" + dateText.text + "</td></tr>"
+        messageBody2 += "</table>"
+        
+//        messageBody2 += "<table width=100% rules='all' style='border-color: #000; font: 11pt Arial;' border=1 cellpadding=3>"
+//        messageBody2 += "<tr><td align=center valign=middle width=15% style='background: #fff;'><strong>Bag Tag #</strong></td><td align=center valign=middle width=15% style='background: #fff;'><strong>Trailer #</strong></td><td align=center valign=middle width=15% style='background: #fff;'><strong>BOL #</strong></td><td align=center valign=middle width=15% style='background: #fff;'><strong>Bag Weight</strong></td><td align=center valign=middle width=20% style='background: #fff;'><strong>Total # of acres planted today</strong></td><td align=center valign=middle width=20% style='background: #fff;'><strong>Notes</strong></td></tr>"
+//        
+//        messageBody2 += "<tr><td align=center valign=middle style='background: #fff;'>" + bagArray[0] + "</td><td align=center valign=middle style='background: #fff;'>" + trailerArray[0] + "</td><td align=center valign=middle style='background: #fff;'>" + bolArray[0] + "</td><td align=center valign=middle style='background: #fff;'>" + bagweightArray[0] + "</td><td rowspan="
+//        
+//        var n = self.bagArray.count
+//        var y = totalAcresTextField.text
+//        messageBody2 += String(n) + " align=center valign=middle style='background: #fff;'>"
+//        messageBody2 += y + "</td><td rowspan="
+//        messageBody2 += String(n) + " valign=top style='background: #fff;'>Notes</td></tr>"
+//        
+//        for (var i = 1; i<bagArray.count; i++) {
+//            messageBody2 += "<tr><td align=center valign=middle>" + bagArray[i] + "</td><td align=center valign=middle>" + trailerArray[i] + "</td><td align=center valign=middle>" + bolArray[i] + "</td><td align=center valign=middle>" + bagweightArray[i] + "</td></tr>"
+//        }
+//        
+//        messageBody2 += "</table>"
+        
         let fmt = UIMarkupTextPrintFormatter(markupText: messageBody2)
         
         // 2. Assign print formatter to UIPrintPageRenderer
@@ -94,7 +200,7 @@ class ScoutingViewController: UIViewController, UIPopoverPresentationControllerD
         UIGraphicsBeginPDFContextToData(pdfData, CGRectZero, nil)
         
         let myImage = UIImage(named: "logo")
-        let rect = CGRectMake(0.0, 0.0, 216.0, 64.65)
+        let rect = CGRectMake(16.0, 40.0, 216.0, 64.65)
         
         UIGraphicsBeginPDFPageWithInfo(page, nil)
         let bounds = UIGraphicsGetPDFContextBounds()
@@ -128,6 +234,8 @@ class ScoutingViewController: UIViewController, UIPopoverPresentationControllerD
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        resignAll()
+        
         if segue.identifier == "showScoutingPopover" {
             let ppc:ScoutingPopoverController = segue.destinationViewController as! ScoutingPopoverController
             ppc.delegate = self
@@ -138,6 +246,8 @@ class ScoutingViewController: UIViewController, UIPopoverPresentationControllerD
     }
     
     @IBAction func cancel(sender: UIButton) {
+        resignAll()
+        
         let alertController = UIAlertController(title: "Close?", message: "All text will be lost.", preferredStyle: .Alert)
         alertController.addAction(UIAlertAction(title: "Yes", style: .Default, handler: {
             (action: UIAlertAction!) in
@@ -155,6 +265,29 @@ class ScoutingViewController: UIViewController, UIPopoverPresentationControllerD
         farmNoText.text = farmNo
         tractNoText.text = tractNo
         acresText.text = acres
+        
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "dismissKeyboard"))
+        
+        var datePicker:UIDatePicker = UIDatePicker()
+        datePicker.datePickerMode = .Date
+        datePicker.backgroundColor = .whiteColor()
+        self.dateText.inputView = datePicker
+        datePicker.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: .ValueChanged)
+    }
+    
+    func handleDatePicker(sender: UIDatePicker) {
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateText.text = dateFormatter.stringFromDate(sender.date)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
     func returnFieldData(plants:String, tillers:String, height:String) {

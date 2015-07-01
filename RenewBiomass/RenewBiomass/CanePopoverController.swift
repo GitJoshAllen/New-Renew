@@ -22,6 +22,9 @@ class CanePopoverController: UIViewController {
     @IBOutlet weak var percentText: UITextField!
     
     @IBAction func addItem(sender: UIButton) {
+        self.weightText.resignFirstResponder()
+        self.percentText.resignFirstResponder()
+        
         if delegate != nil {
             
             let returnWeight:String = weightText.text

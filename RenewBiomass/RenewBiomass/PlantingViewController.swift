@@ -10,7 +10,11 @@ import MessageUI
 
 class PlantingViewController: UIViewController, UIPopoverPresentationControllerDelegate, SendDataFromPopoverDelegate, MFMailComposeViewControllerDelegate {
     
+    var notes = ""
+    
     @IBAction func cancel(sender: UIButton) {
+        resignAll()
+        
         let alertController = UIAlertController(title: "Close?", message: "All text will be lost.", preferredStyle: .Alert)
         alertController.addAction(UIAlertAction(title: "Yes", style: .Default, handler: {
             (action: UIAlertAction!) in
@@ -18,6 +22,17 @@ class PlantingViewController: UIViewController, UIPopoverPresentationControllerD
         }))
         alertController.addAction(UIAlertAction(title: "No", style: .Default, handler: nil))
         self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func resignAll() {
+        self.dateTextField.resignFirstResponder()
+        self.plantOperatorTextField.resignFirstResponder()
+        self.planterNumberTextField.resignFirstResponder()
+        self.producerNameTextField.resignFirstResponder()
+        self.farmNumberTextField.resignFirstResponder()
+        self.tractNumberTextField.resignFirstResponder()
+        self.totalAcresTextField.resignFirstResponder()
+        self.soilTempTextField.resignFirstResponder()
     }
     
     @IBOutlet var addButton:UIButton!
@@ -40,6 +55,12 @@ class PlantingViewController: UIViewController, UIPopoverPresentationControllerD
     var farmNo:String?
     var tractNo:String?
     
+    //added 1.3
+    var county:String?
+    var contactNo:String?
+    var email:String?
+    //end 1.3
+    
     var bagArray:[String] = []
     var trailerArray:[String] = []
     var bolArray:[String] = []
@@ -57,6 +78,14 @@ class PlantingViewController: UIViewController, UIPopoverPresentationControllerD
     var numberOfRows = 0
     
     @IBAction func sendEmail(sender: UIButton) {
+        resignAll()
+        
+        if let controller = self.tabBarController?.viewControllers![2] as? NotesViewController {
+            if let myNotes = controller.textView?.text {
+                notes = myNotes
+            }
+        }
+        
         if !MFMailComposeViewController.canSendMail() {
             return
         }
@@ -89,7 +118,7 @@ class PlantingViewController: UIViewController, UIPopoverPresentationControllerD
         messageBody2 += "<tr><td valign=middle width=60% style='background: #fff;' colspan=4><strong>Planter Operator: </strong>" + plantOperatorTextField.text + "</td>"
         messageBody2 += "<td valign=middle width=40% style='background: #fff;' colspan=2><strong>Planter #: </strong>" + planterNumberTextField.text + "</td></tr>"
         messageBody2 += "<tr><td valign=middle width=60% style='background: #fff;' colspan=4><strong>Producer Name: </strong>" + producerNameTextField.text + "</td>"
-        messageBody2 += "<td valign=middle width=20% style='background: #fff;'>Farm: " + farmNumberTextField.text + "</td><td valign=middle width=20% style='background: #fff;'>Tract: " + tractNumberTextField.text + "</td></tr>"
+        messageBody2 += "<td valign=middle width=20% style='background: #fff;'><strong>Farm: </strong>" + farmNumberTextField.text + "</td><td valign=middle width=20% style='background: #fff;'><strong>Tract: </strong>" + tractNumberTextField.text + "</td></tr>"
         
         messageBody2 += "<tr><td align=center valign=middle width=15% style='background: #fff;'><strong>Bag Tag #</strong></td><td align=center valign=middle width=15% style='background: #fff;'><strong>Trailer #</strong></td><td align=center valign=middle width=15% style='background: #fff;'><strong>BOL #</strong></td><td align=center valign=middle width=15% style='background: #fff;'><strong>Bag Weight</strong></td><td align=center valign=middle width=20% style='background: #fff;'><strong>Total # of acres planted today</strong></td><td align=center valign=middle width=20% style='background: #fff;'><strong>Notes</strong></td></tr>"
         
@@ -99,7 +128,7 @@ class PlantingViewController: UIViewController, UIPopoverPresentationControllerD
         var y = totalAcresTextField.text
         messageBody2 += String(n) + " align=center valign=middle style='background: #fff;'>"
         messageBody2 += y + "</td><td rowspan="
-        messageBody2 += String(n) + " valign=top style='background: #fff;'>Notes</td></tr>"
+        messageBody2 += String(n) + " valign=top style='background: #fff;'>" + notes + "</td></tr>"
         
         for (var i = 1; i<bagArray.count; i++) {
             messageBody2 += "<tr><td align=center valign=middle>" + bagArray[i] + "</td><td align=center valign=middle>" + trailerArray[i] + "</td><td align=center valign=middle>" + bolArray[i] + "</td><td align=center valign=middle>" + bagweightArray[i] + "</td></tr>"
@@ -159,6 +188,8 @@ class PlantingViewController: UIViewController, UIPopoverPresentationControllerD
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        resignAll()
+        
         if segue.identifier == "showPlantingPopover" {
             let ppc:PlantingPopoverController = segue.destinationViewController as! PlantingPopoverController
             ppc.delegate = self
@@ -220,5 +251,28 @@ class PlantingViewController: UIViewController, UIPopoverPresentationControllerD
         producerNameTextField.text = farmer
         farmNumberTextField.text = farmNo
         tractNumberTextField.text = tractNo
+        
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "dismissKeyboard"))
+        
+        var datePicker:UIDatePicker = UIDatePicker()
+        datePicker.datePickerMode = .Date
+        datePicker.backgroundColor = .whiteColor()
+        self.dateTextField.inputView = datePicker
+        datePicker.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: .ValueChanged)
+    }
+    
+    func handleDatePicker(sender: UIDatePicker) {
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateTextField.text = dateFormatter.stringFromDate(sender.date)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 }

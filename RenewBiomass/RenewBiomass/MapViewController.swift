@@ -17,6 +17,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     var location:String?
     var acres:String?
     
+    //added 1.3
+    var county:String?
+    var contactNo:String?
+    var email:String?
+    //end 1.3
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

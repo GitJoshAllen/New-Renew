@@ -25,6 +25,15 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     var zipCodeStrings:[String] = []
     var tractNoStrings:[String] = []
     
+    //these were added 1.3
+    var farmNoStrings:[String] = []
+    var countyStrings:[String] = []
+    var acresStrings:[String] = []
+    var phoneNumberStrings:[String] = []
+    var emailStrings:[String] = []
+    var contactNoStrings:[String] = []
+    //end 1.3
+    
     var farmerRow:Int!
     var entityRow:Int!
     var locationRow:Int!
@@ -53,70 +62,53 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     @IBOutlet weak var locationText:UITextField!
     @IBOutlet weak var acresText:UITextField!
     
-//    var lineArray:[String]!
-//    var line = 1
-//    
-//    func saveToCloudKit(whichIndex:Int) {
-//        if whichIndex < lineArray.count {
-//            let cloudContainer = CKContainer.defaultContainer()
-//            let publicDatabase = CKContainer.defaultContainer().publicCloudDatabase
-//            
-//            var columnArray:[String] = lineArray[whichIndex].componentsSeparatedByString(",")
-//            
-//            var record = CKRecord(recordType: "Farmer")
-//            record.setValue(columnArray[0], forKey: "FirstName")
-//            record.setValue(columnArray[1], forKey: "LastName")
-//            record.setValue(columnArray[2], forKey: "Address")
-//            record.setValue(columnArray[3], forKey: "City")
-//            record.setValue(columnArray[4], forKey: "State")
-//            record.setValue(columnArray[5].toInt(), forKey: "ZipCode")
-//            record.setValue(columnArray[6], forKey: "PhoneNumber")
-//            record.setValue(columnArray[7], forKey: "Email")
-//            record.setValue(columnArray[8].toInt(), forKey: "FarmNo")
-//            if columnArray[9].isEmpty {
-//                columnArray[9] = "999999"
-//            }
-//            record.setValue(columnArray[9].toInt(), forKey: "TractNo")
-//            record.setValue(columnArray[10], forKey: "County")
-//            record.setValue((columnArray[11] as NSString).doubleValue, forKey: "Acres")
-//            if columnArray[12].toInt() == nil {
-//                columnArray[12] = "999999"
-//            }
-//            record.setValue(columnArray[12].toInt(), forKey: "ContactNumber")
-//            
-//            publicDatabase.saveRecord(record, completionHandler: { (record:CKRecord!, error:NSError!) -> Void in
-//                if error != nil {
-//                    println("Failed to save record to the cloud: \(error.description)")
-//                } else {
-//                    self.line++
-//                    self.saveToCloudKit(self.line)
-//                }
-//            })
-//        }
-//    }
-//    
-//    func parseFarmersCSV(text:String) {
-//        lineArray = text.componentsSeparatedByString("\r\n")
-//        saveToCloudKit(line)
-//        println(lineArray.count)
-//    }
+    var lineArray:[String]!
+    
+    func saveToCoreData() {
+        if let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
+            
+            for each in 1...lineArray.count - 1 {
+                if each != 0 {
+                    var columnArray:[String] = lineArray[each].componentsSeparatedByString(",")
+            
+                    farmer = NSEntityDescription.insertNewObjectForEntityForName("Farmer", inManagedObjectContext: managedObjectContext) as! Farmer
+                    farmer.firstName = columnArray[0]
+                    farmer.lastName = columnArray[1]
+                    farmer.address = columnArray[2]
+                    farmer.city = columnArray[3]
+                    farmer.state = columnArray[4]
+                    farmer.zipCode = columnArray[5].toInt()
+                    farmer.phoneNumber = columnArray[6]
+                    farmer.email = columnArray[7]
+                    farmer.farmNo = columnArray[8].toInt()
+                    farmer.tractNo = columnArray[9].toInt()
+                    farmer.county = columnArray[10]
+                    farmer.acres = (columnArray[11] as NSString).doubleValue
+                    farmer.contactNumber = columnArray[12].toInt()
+                    var error:NSError?
+                    if managedObjectContext.save(&error) != true {
+                        println("insert error: \(error!.localizedDescription)")
+                        return
+                    }
+                }
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        if let upload: AnyObject = defaults.objectForKey("uploadedToCloudKit") {
-//            println("not uploading because it is already done")
-//        } else {
-//            println("uploading because it is not already done")
-//            
-//            if let file = NSBundle.mainBundle().pathForResource("farmers3", ofType: "csv") {
-//                var error:NSError?
-//                var content = String(contentsOfFile: file, encoding: NSUTF8StringEncoding, error: &error)
-//                parseFarmersCSV(content!)
-//            }
-//            
-//            defaults.setObject("UPLOADED", forKey: "uploadedToCloudKit")
-//        }
+        if let upload: AnyObject = defaults.objectForKey("uploadedToCloudKit") {
+            // Already inserted into CoreData
+        } else {
+            if let file = NSBundle.mainBundle().pathForResource("farmers3", ofType: "csv") {
+                var error:NSError?
+                var content = String(contentsOfFile: file, encoding: NSUTF8StringEncoding, error: &error)
+                lineArray = content!.componentsSeparatedByString("\r\n")
+                saveToCoreData()
+            }
+            defaults.setObject("UPLOADED", forKey: "uploadedToCloudKit")
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -145,19 +137,23 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         
         setUpPickerViews()
         
-        if let date = defaults.objectForKey("cloudKitDate") as? NSDate {
-            
-        } else {
-            let calendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)
-            let components = NSDateComponents()
-            components.year = 2015
-            components.month = 6
-            components.day = 1 //midnight on 06/01/2015
-            var newDate = calendar!.dateFromComponents(components)
-            defaults.setObject(newDate, forKey: "cloudKitDate")
-        }
-        self.getRecordsFromCloud()
-        defaults.setObject(NSDate(), forKey: "cloudKitDate")
+//        if let date = defaults.objectForKey("cloudKitDate") as? NSDate {
+//            
+//        } else {
+//            let calendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)
+//            let components = NSDateComponents()
+//            components.year = 2015
+//            components.month = 6
+//            components.day = 1 //midnight on 06/01/2015
+//            var newDate = calendar!.dateFromComponents(components)
+//            defaults.setObject(newDate, forKey: "cloudKitDate")
+//        }
+//        self.getRecordsFromCloud()
+//        defaults.setObject(NSDate(), forKey: "cloudKitDate")
+        
+        self.spinner.stopAnimating()
+        self.overlayView.removeFromSuperview()
+        self.loadDataInFarmerPicker()
     }
     
     func setUpPickerViews() {
@@ -360,6 +356,13 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
                     self.cityStrings.append(person.city)
                     self.stateStrings.append(person.state)
                     self.zipCodeStrings.append(String(stringInterpolationSegment: person.zipCode))
+                    
+                    //added 1.3
+                    self.contactNoStrings.append(String(stringInterpolationSegment: person.contactNumber))
+                    self.countyStrings.append(person.county)
+                    self.emailStrings.append(person.email)
+                    self.phoneNumberStrings.append(person.phoneNumber)
+                    //end 1.3
                 }
             }
         }
@@ -409,6 +412,12 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
                 destinationController.farmNo = entityText.text
                 destinationController.tractNo = tractNoStrings[tractRow]
                 destinationController.optionSelected = "Rhizome"
+                
+                //added 1.3
+                destinationController.contactNo = contactNoStrings[tractRow]
+                destinationController.county = countyStrings[tractRow]
+                destinationController.email = emailStrings[tractRow]
+                //end 1.3
             }
         }
         if (segue.identifier == "mainViewToTabViewScouting") {
@@ -420,6 +429,12 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
                 destinationController.farmNo = entityText.text
                 destinationController.tractNo = tractNoStrings[tractRow]
                 destinationController.optionSelected = "Scouting"
+                
+                //added 1.3
+                destinationController.contactNo = contactNoStrings[tractRow]
+                destinationController.county = countyStrings[tractRow]
+                destinationController.email = emailStrings[tractRow]
+                //end 1.3
             }
         }
         if (segue.identifier == "mainViewToTabViewPlanting") {
@@ -431,6 +446,12 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
                 destinationController.farmNo = entityText.text
                 destinationController.tractNo = tractNoStrings[tractRow]
                 destinationController.optionSelected = "Planting"
+                
+                //added 1.3
+                destinationController.contactNo = contactNoStrings[tractRow]
+                destinationController.county = countyStrings[tractRow]
+                destinationController.email = emailStrings[tractRow]
+                //end 1.3
             }
         }
         if (segue.identifier == "mainViewToTabViewCane") {
@@ -443,6 +464,12 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
                 destinationController.tractNo = tractNoStrings[tractRow]
                 destinationController.county = ""
                 destinationController.optionSelected = "Cane"
+                
+                //added 1.3
+                destinationController.contactNo = contactNoStrings[tractRow]
+                destinationController.county = countyStrings[tractRow]
+                destinationController.email = emailStrings[tractRow]
+                //end 1.3
             }
         }
     }
@@ -468,11 +495,38 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         let predicate = NSPredicate(format: "modificationDate > %@", combinedDate)
         let query = CKQuery(recordType: "Farmer", predicate: predicate)
         
+        //OPERATIONAL API BELOW
+//        let queryOperation = CKQueryOperation(query: query)
+//        queryOperation.queuePriority = .VeryHigh
+//        queryOperation.resultsLimit = 1000
+//        queryOperation.recordFetchedBlock = { (record:CKRecord!) -> Void in
+//            if let farmerRecord = record {
+//                self.farmers.append(farmerRecord)
+//            }
+//        }
+//        queryOperation.queryCompletionBlock = { (cursor:CKQueryCursor!, error:NSError!) -> Void in
+//            if error != nil {
+//                println("Failed to get data from iCloud - \(error.localizedDescription)")
+//            } else {
+//                println("Successfully retrieved the data from iCloud")
+//                dispatch_async(dispatch_get_main_queue(), {
+//                    println(self.farmers.count)
+//                    self.addFarmersToCoreData()
+//                    self.spinner.stopAnimating()
+//                    self.overlayView.removeFromSuperview()
+//                    self.loadDataInFarmerPicker()
+//                })
+//            }
+//        }
+//        publicDatabase.addOperation(queryOperation)
+        
+        //CONVENIENCE API BELOW
         publicDatabase.performQuery(query, inZoneWithID: nil, completionHandler: {
             results, error in
             if error == nil {
                 self.farmers = results as! [CKRecord]
                 dispatch_async(dispatch_get_main_queue(), {
+                    println(self.farmers.count)
                     self.addFarmersToCoreData()
                     self.spinner.stopAnimating()
                     self.overlayView.removeFromSuperview()

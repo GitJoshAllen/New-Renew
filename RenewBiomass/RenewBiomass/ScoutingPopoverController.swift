@@ -27,6 +27,10 @@ class ScoutingPopoverController: UIViewController {
     @IBOutlet weak var heightText: UITextField!
     
     @IBAction func addItem(sender: UIButton) {
+        self.plantsText.resignFirstResponder()
+        self.tillersText.resignFirstResponder()
+        self.heightText.resignFirstResponder()
+        
         if delegate != nil {
             
             let returnPlants:String = plantsText.text

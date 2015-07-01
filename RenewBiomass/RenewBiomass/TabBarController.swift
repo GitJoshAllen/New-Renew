@@ -18,6 +18,11 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     var county:String?
     var optionSelected:String?
     
+    //added 1.3
+    var email:String?
+    var contactNo:String?
+    //end 1.3
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +36,12 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
             controller.acres = acres
             controller.farmNo = farmNo
             controller.tractNo = tractNo
+            
+            //added 1.3
+            controller.county = county
+            controller.email = email
+            controller.contactNo = contactNo
+            //end 1.3
         }
         
         if let controller = viewControllers![2] as? PlantingViewController {
@@ -40,6 +51,12 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
             controller.acres = acres
             controller.farmNo = farmNo
             controller.tractNo = tractNo
+            
+            //added 1.3
+            controller.county = county
+            controller.email = email
+            controller.contactNo = contactNo
+            //end 1.3
         }
         
         if let controller = viewControllers![3] as? CaneViewController {
@@ -50,6 +67,11 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
             controller.farmNo = farmNo
             controller.tractNo = tractNo
             controller.county = county
+            
+            //added 1.3
+            controller.email = email
+            controller.contactNo = contactNo
+            //end 1.3
         }
         
         if let controller = viewControllers![4] as? MapViewController {
@@ -57,6 +79,12 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
             controller.entity = entity
             controller.location = location
             controller.acres = acres
+            
+            //added 1.3
+            controller.county = county
+            controller.email = email
+            controller.contactNo = contactNo
+            //end 1.3
         }
         
         if let controller = viewControllers![5] as? NotesViewController {
@@ -67,6 +95,12 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
             controller.entity = entity
             controller.location = location
             controller.acres = acres
+            
+            //added 1.3
+            controller.county = county
+            controller.email = email
+            controller.contactNo = contactNo
+            //end 1.3
         }
         
         if optionSelected == "Rhizome" {

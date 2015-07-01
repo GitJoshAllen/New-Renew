@@ -117,10 +117,10 @@
 				96BD442D1A8AED8100216137 /* MainViewController.swift */,
 				96C8F4F51A8C428D005351B3 /* TabBarController.swift */,
 				96AED8DF1B2B57100078BE54 /* RhizomeViewController.swift */,
-				963B83DC1A9B97F30072CD2D /* PlantingViewController.swift */,
-				96C49A4E1A9CD2D60080902E /* PlantingPopoverController.swift */,
 				96AED8E11B2B57220078BE54 /* ScoutingViewController.swift */,
 				969ED2AC1B3DDD3500073221 /* ScoutingPopoverController.swift */,
+				963B83DC1A9B97F30072CD2D /* PlantingViewController.swift */,
+				96C49A4E1A9CD2D60080902E /* PlantingPopoverController.swift */,
 				96AED8E31B2B57370078BE54 /* CaneViewController.swift */,
 				962F271D1B38B50800C743D7 /* CanePopoverController.swift */,
 				96C8F4F31A8C366B005351B3 /* MapViewController.swift */,
@@ -407,6 +407,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RenewBiomass/RenewBiomass.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -424,6 +425,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RenewBiomass/RenewBiomass.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

@@ -26,6 +26,11 @@ class PlantingPopoverController: UIViewController {
     @IBOutlet weak var bagweightText: UITextField!
     
     @IBAction func addItem(sender: UIButton) {
+        self.bagText.resignFirstResponder()
+        self.trailerText.resignFirstResponder()
+        self.bolText.resignFirstResponder()
+        self.bagweightText.resignFirstResponder()
+        
         if delegate != nil {
             
             let returnBag:String = bagText.text

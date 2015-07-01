@@ -10,7 +10,11 @@ import MessageUI
 
 class CaneViewController: UIViewController, UIPopoverPresentationControllerDelegate, SendDataFromCanePopoverDelegate, MFMailComposeViewControllerDelegate {
     
+    var notes = ""
+    
     @IBAction func cancel(sender: UIButton) {
+        resignAll()
+        
         let alertController = UIAlertController(title: "Close?", message: "All text will be lost.", preferredStyle: .Alert)
         alertController.addAction(UIAlertAction(title: "Yes", style: .Default, handler: {
             (action: UIAlertAction!) in
@@ -18,6 +22,22 @@ class CaneViewController: UIViewController, UIPopoverPresentationControllerDeleg
         }))
         alertController.addAction(UIAlertAction(title: "No", style: .Default, handler: nil))
         self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func resignAll() {
+        self.producerTextField.resignFirstResponder()
+        self.countyTextField.resignFirstResponder()
+        self.farmNumberTextField.resignFirstResponder()
+        self.tractNumberTextField.resignFirstResponder()
+        self.acresHarvestedTextField.resignFirstResponder()
+        self.harvestDateTextField.resignFirstResponder()
+        self.numberOfBalesTextField.resignFirstResponder()
+        self.totalTonsTextField.resignFirstResponder()
+        self.averageTonsTextField.resignFirstResponder()
+        self.baleTypeTextField.resignFirstResponder()
+        self.numberSampledTextField.resignFirstResponder()
+        self.averageWeightTextField.resignFirstResponder()
+        self.averageMoistureTextField.resignFirstResponder()
     }
     
     var dataColumn:Int = 0
@@ -50,6 +70,29 @@ class CaneViewController: UIViewController, UIPopoverPresentationControllerDeleg
         farmNumberTextField.text = farmNo
         tractNumberTextField.text = tractNo
         countyTextField.text = county
+        
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "dismissKeyboard"))
+        
+        var datePicker:UIDatePicker = UIDatePicker()
+        datePicker.datePickerMode = .Date
+        datePicker.backgroundColor = .whiteColor()
+        self.harvestDateTextField.inputView = datePicker
+        datePicker.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: .ValueChanged)
+    }
+    
+    func handleDatePicker(sender: UIDatePicker) {
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        harvestDateTextField.text = dateFormatter.stringFromDate(sender.date)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
     var farmer:String?
@@ -59,6 +102,11 @@ class CaneViewController: UIViewController, UIPopoverPresentationControllerDeleg
     var farmNo:String?
     var tractNo:String?
     var county:String?
+    
+    //added 1.3
+    var contactNo:String?
+    var email:String?
+    //end 1.3
     
     var weightArray:[String] = []
     var percentArray:[String] = []
@@ -72,6 +120,14 @@ class CaneViewController: UIViewController, UIPopoverPresentationControllerDeleg
     var previousPercent:String = ""
     
     @IBAction func sendEmail(sender: UIButton) {
+        resignAll()
+        
+        if let controller = self.tabBarController?.viewControllers![2] as? NotesViewController {
+            if let myNotes = controller.textView?.text {
+                notes = myNotes
+            }
+        }
+        
         if !MFMailComposeViewController.canSendMail() {
             return
         }
@@ -117,30 +173,31 @@ class CaneViewController: UIViewController, UIPopoverPresentationControllerDeleg
         
         messageBody2 += "<td align=center valign=middle width=12% style='background: #fff;'><strong>Weight</strong></td><td align=center valign=middle width=5% style='background: #fff;'><strong>%</strong></td><td align=center valign=middle width=12% style='background: #fff;'><strong>Weight</strong></td><td align=center valign=middle width=5% style='background: #fff;'><strong>%</strong></td><td align=center valign=middle width=12% style='background: #fff;'><strong>Weight</strong></td><td align=center valign=middle width=5% style='background: #fff;'><strong>%</strong></td><td align=center valign=middle width=12% style='background: #fff;'><strong>Weight</strong></td><td align=center valign=middle width=5% style='background: #fff;'><strong>%</strong></td><td align=center valign=middle width=12% style='background: #fff;'><strong>Weight</strong></td><td align=center valign=middle width=5% style='background: #fff;'><strong>%</strong></td></tr>"
         
-        var remainder = 5 - (weightArray.count % 5)
-        if weightArray.count > 0 {
-            for index in 1...weightArray.count {
-                if index % 5 == 1 {
+        var remainder = 5 - (numberOfItems % 5)
+        if numberOfItems > 0 {
+            for incrementer in 1...numberOfItems {
+                if incrementer % 5 == 1 {
                     messageBody2 += "<tr>"
                 }
-                messageBody2 += "<td align=center valign=middle width=12% style='background: #fff;'>1000</td><td align=center valign=middle width=5% style='background: #fff;'>5</td>"
-                if index % 5 == 0 {
+                var index = incrementer - 1
+                messageBody2 += "<td align=center valign=middle width=12% style='background: #fff;'>" + weightArray[index] + "</td><td align=center valign=middle width=5% style='background: #fff;'>" + percentArray[index] + "</td>"
+                if incrementer % 5 == 0 {
                     messageBody2 += "</tr>"
                 }
             }
             if remainder != 5 {
-                for index in 1...remainder {
+                for incrementer in 1...remainder {
                     messageBody2 += "<td align=center valign=middle width=12% style='background: #fff;'></td><td align=center valign=middle width=5% style='background: #fff;'></td>"
                 }
             }
-            if weightArray.count % 5 != 0 {
+            if numberOfItems % 5 != 0 {
                 messageBody2 += "</tr>"
             }
         }
         
         messageBody2 += "<tr><td valign=middle width=15% style='background: #fff;' align=center><strong>Average Bale Weight:</strong></td><td valign=middle width=85% style='background: #fff;' colspan=10>" + averageWeightTextField.text + "</td></tr>"
         messageBody2 += "<tr><td valign=middle width=15% style='background: #fff;' align=center><strong>Average Moisture:</strong></td><td valign=middle width=85% style='background: #fff;' colspan=10>" + averageMoistureTextField.text + "</td></tr>"
-        messageBody2 += "<tr><td valign=middle width=15% style='background: #fff;' align=center><strong>Notes:</strong></td><td valign=top width=85% style='background: #fff;' colspan=10>" + "Notes" + "</td></tr>"
+        messageBody2 += "<tr><td valign=middle width=15% style='background: #fff;' align=center><strong>Notes:</strong></td><td valign=top width=85% style='background: #fff;' colspan=10>" + notes + "</td></tr>"
         
         messageBody2 += "</table>"
         
@@ -196,6 +253,8 @@ class CaneViewController: UIViewController, UIPopoverPresentationControllerDeleg
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        resignAll()
+        
         if segue.identifier == "showCanePopover" {
             let ppc:CanePopoverController = segue.destinationViewController as! CanePopoverController
             ppc.delegate = self
